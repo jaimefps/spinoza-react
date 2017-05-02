@@ -1,11 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
+import React from 'react'; 
+import greuler from '../node_modules/greuler/dist/greuler.min.js';
 import { book } from './graph';
+import { greuler_object, reset } from './greuler-obj-builder.js';
 import './assets/app.css';
-
-import greuler from '../bower_components/greuler/dist/greuler.js';
-// var greuler = require('greuler/dist/greuler.js');
 
 class Map extends React.Component {
   constructor(props) {
@@ -29,7 +26,7 @@ class Map extends React.Component {
     this.handleFromField = this.handleFromField.bind(this);
     this.handleToField = this.handleToField.bind(this);
 
-    this.test = this.test.bind(this);
+    // this.test = this.test.bind(this);
   }
 
   getConnections() {
@@ -59,7 +56,17 @@ class Map extends React.Component {
   }
   getAdjacent() {
     this.setState({
-      output: Object.values(book.getAdjacent(this.state.input_from)).sort(),
+      output: Object.values(book.getAdjacent(this.state.input_from)),
+    }, () => {
+      reset(greuler_object);
+      greuler_object.data.nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 50 });
+      this.state.output.forEach(nodeName => {
+        greuler_object.data.nodes.push({ id: nodeName, label: nodeName, r: 25 })
+      });
+      this.state.output.forEach(nodeName => {
+        greuler_object.data.links.push({ source: this.state.input_from, target: nodeName, directed: true })
+      });
+      greuler(greuler_object).update();
     });
   }
 
@@ -77,33 +84,6 @@ class Map extends React.Component {
     this.setState({
       input_to: e.target.value,
     });
-  }
-
-  test() {
-    greuler({
-      target: '#demo',
-      width: 480,
-      height: 500,
-      data: {
-        nodes: [
-          {id: 0, label: "E1Def3", r: 25},
-          {id: 1, label: "E1P4", r: 15},
-          {id: 2, label: "E1P2", r: 15},
-          {id: 3, label: "E1P1", r: 15},
-          {id: 4, label: "E1P5", r: 15},
-          {id: 5, label: "E1P6", r: 25}
-        ],
-        links: [
-          {source: 0, target: 1, directed: true},
-          {source: 0, target: 2, directed: true},
-          {source: 0, target: 3, directed: true},
-          {source: 1, target: 4, directed: true},
-          {source: 2, target: 5, directed: true},
-          {source: 3, target: 4, directed: true},
-          {source: 4, target: 5, directed: true}
-        ]
-      }
-    }).update()
   }
 
   render() {
