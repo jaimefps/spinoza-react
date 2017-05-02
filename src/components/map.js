@@ -1,5 +1,6 @@
 import React from 'react';
-import { Node, Graph, book } from '../graph';
+
+import { book } from '../graph';
 import '../assets/map.css';
 
 class Map extends React.Component {
@@ -10,8 +11,9 @@ class Map extends React.Component {
       input_from: '',
       input_to: '',
       output: '',
-      query_type: 'getAdjacent',
+      query_type: 'getAdjacent', 
     };
+
     this.getConnections = this.getConnections.bind(this);
     this.getAncestors = this.getAncestors.bind(this);
     this.getDescendants = this.getDescendants.bind(this);
@@ -19,9 +21,9 @@ class Map extends React.Component {
     this.getChildren = this.getChildren.bind(this);
     this.getAdjacent = this.getAdjacent.bind(this);
 
+    this.handleQueryTypeSelection = this.handleQueryTypeSelection.bind(this);
     this.handleFromField = this.handleFromField.bind(this);
     this.handleToField = this.handleToField.bind(this);
-    this.handleQueryTypeSelection = this.handleQueryTypeSelection.bind(this);
   }
 
   getConnections() {
@@ -60,7 +62,6 @@ class Map extends React.Component {
       query_type: e.target.name,
     });
   }
-
   handleFromField(e) {
     this.setState({
       input_from: e.target.value,
@@ -76,27 +77,31 @@ class Map extends React.Component {
     const bounded = this;
     return (
       <div className="map-component">
+        
         <div className="options-container">
           <div className="search-title">Search Types</div>
-          <a href="#target1" id="target1" className="target" name="getChildren" onClick={this.handleQueryTypeSelection}>getChildren</a>
-          <a href="#target2" id="target2" className="target" name="getParents" onClick={this.handleQueryTypeSelection}>getParents</a>
           <a href="#target3" id="target3" className="target" name="getAdjacent" onClick={this.handleQueryTypeSelection}>getAdjacent</a>
-          <a href="#target4" id="target4" className="target" name="getAncestors" onClick={this.handleQueryTypeSelection}>getAncestors</a>
+          <a href="#target1" id="target1" className="target" name="getChildren" onClick={this.handleQueryTypeSelection}>getChildren</a>
           <a href="#target5" id="target5" className="target" name="getDescendants" onClick={this.handleQueryTypeSelection}>getDescendants</a>
-          <a href="#target6" id="target6" className="target" name="getConnections" onClick={this.handleQueryTypeSelection}>getConnections</a>
+          <a href="#target2" id="target2" className="target" name="getParents" onClick={this.handleQueryTypeSelection}>getParents</a>
+          <a href="#target4" id="target4" className="target" name="getAncestors" onClick={this.handleQueryTypeSelection}>getAncestors</a>
+          <a href="#target6" id="target6" className="target" name="getConnections" onClick={this.handleQueryTypeSelection}>getConnection</a>
         </div>
+        
         <div className="form">
           <input placeholder="from" type="text" onChange={this.handleFromField} />
           {bounded.state.query_type === 'getConnections' ? <input placeholder="to" type="text" onChange={this.handleToField} /> : null}
-          <button
-            onClick={() => {
-              this[bounded.state.query_type]();
-            }
-          }
-          >getData</button>
+          <button onClick={() => {this[bounded.state.query_type]();}}>getData</button>
+        </div>
+        
+        <div>query output: {JSON.stringify(this.state.output)}</div>
+        
+        <div className="contact-links">
+          <a target="_blank" href="https://www.linkedin.com/in/jaime-pericas-saez/" className="linkedin"/>
+          <a target="_blank" href="https://github.com/jaimefps" className="github"/>
+          <a target="_blank" href="https://www.facebook.com/jaime.f.pericas" className="facebook"/>
         </div>
 
-        <div>query output: {JSON.stringify(this.state.output)}</div>
       </div>
     );
   }

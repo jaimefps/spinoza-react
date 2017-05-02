@@ -1,0 +1,49 @@
+.home-component {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 1px;
+}
+.home-component > div {
+  border: 1px solid black;
+}
+.about > div {
+  padding: 4px;
+  font-size: 2em;
+}
+.about > p {
+  padding: 4px;
+  font-size: 1.5em;
+}
+.acknow-contact {
+  display: flex;
+  flex-direction: column;
+}
+.acknow-contact > div {
+  font-size: 2em;
+  border: 1px solid black;
+}
+.contact {
+  display: flex;
+  justify-content: center;
+}
+.contact-links {
+  display: flex;
+  flex-direction: row;
+}
+.contact-links > a {
+  background-size: 100%;
+  height: 1em;
+  width: 3em;
+  margin: 2px;
+  border: 1px solid black;
+}
+.linkedin {
+  background-image: url('../assets/icons/linkedin.png');
+}
+.facebook {
+  background-image: url('../assets/icons/facebook.png');
+}
+.github {
+  background-image: url('../assets/icons/github.png');
+}

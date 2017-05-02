@@ -1,27 +1,42 @@
-.jumbotron {
+.map-component {
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
   justify-content: center;
-  color: lightgrey;
-  height: 650px;
-  border-radius: 5px;
-  background-image: url('https://alpha.aeon.co/images/bfde4f55-ca66-4777-8f90-d602c79ee15b/header_ESSAY-Hirszenberg_-Spinoza-and-the-Rabbis.jpg');
+  align-items: center;
+  margin-top: 10px;
 }
-.jumbotron > div {
-  font-size: 75px;
-  margin: 25px;
+.map-component > div {
+  margin: 10px;
 }
-.nav-container {
+.options-container {
   display: flex;
   flex-direction: row;
-  justify-content: center space-around;
+  justify-content: center;
   align-items: center;
-  height: 30px;
-  width: 60%;
-  /*border: 1px solid black;*/
 }
-.nav-link {
-  padding: 5px;
-  border: 1px solid black;
+.search-title {
+  margin: 10px;
+  font-size: 25px;
+  font-weight: bold;
 }
-
+.target {
+  margin: 10px;
+  text-decoration: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 4px;
+}
+:target {
+  border-radius: 5px;
+  background-color: lightseagreen;
+}
+input {
+  margin: 5px;
+  padding: 4px;
+  border: 1px solid blue;
+}
+button {
+  padding: 3px;
+  background-color: lightgreen;
+  font-weight: bold;
+}

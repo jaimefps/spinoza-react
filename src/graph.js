@@ -7,7 +7,7 @@ export class Node {
   }
 }
 
-export class Graph {
+export default class Graph {
   constructor() {
     this.nodes = {};
   }
@@ -77,12 +77,6 @@ export class Graph {
     return connectors;
   }
 }
-
-
-// Ethics:
-// only use the following while testing out the functionality:
-// it would be way better to just have a ready-made object literal with the structure of the Ethics,
-// and only use the previous graph constructor to dynamically build the data that is necessary for the Greuler graph.
 
 export const book = new Graph();
 
