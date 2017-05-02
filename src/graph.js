@@ -57,9 +57,9 @@ export class Graph {
   getDescendants(title) {
     const allChildren = {};
     const graph = this;
-    (function getChildren(title) {
-      if (graph.nodes[title].children.length < 1) return;
-      graph.nodes[title].children.forEach((child) => {
+    (function getChildren(nodeName) {
+      if (graph.nodes[nodeName].children.length < 1) return;
+      graph.nodes[nodeName].children.forEach((child) => {
         allChildren[child] = child;
         getChildren(child);
       });
