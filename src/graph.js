@@ -21,6 +21,13 @@ export default class Graph {
     this.nodes[fromNode.title].children.push(toNode.title);
     this.nodes[toNode.title].parents.push(fromNode.title);
   }
+  
+  getAdjacent(title) {
+    const result = [];
+    result.push(this.getChildren(title));
+    result.push(this.getParents(title));
+    return result;
+  }
 
   getParents(title) {
     const results = [];
@@ -32,13 +39,6 @@ export default class Graph {
     const results = [];
     this.nodes[title].children.forEach(nodeName => results.push(nodeName));
     return results;
-  }
-
-  getAdjacent(title) {
-    const children = this.getChildren(title);
-    const parents = this.getParents(title);
-    const all = children.concat(parents);
-    return all;
   }
 
   getAncestors(title) {

@@ -1,8 +1,9 @@
 import React from 'react'; 
-import greuler from '../node_modules/greuler/dist/greuler.min.js';
+import greuler from 'greuler/dist/greuler.min.js';
 import { book } from './graph';
-import { greuler_object, reset } from './greuler-obj-builder.js';
+import GraphViz from './greuler-obj-builder.js';
 import './assets/app.css';
+const greuler_object = {}
 
 class Map extends React.Component {
   constructor(props) {
@@ -25,8 +26,7 @@ class Map extends React.Component {
     this.handleQueryTypeSelection = this.handleQueryTypeSelection.bind(this);
     this.handleFromField = this.handleFromField.bind(this);
     this.handleToField = this.handleToField.bind(this);
-
-    // this.test = this.test.bind(this);
+    this.graph = new GraphViz()
   }
 
   getConnections() {
@@ -47,26 +47,40 @@ class Map extends React.Component {
   getParents() {
     this.setState({
       output: Object.values(book.getParents(this.state.input_from)).sort(),
-    });
+    }, () => {
+      const nodes = []
+      const links = []
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 25 });
+      this.state.output.forEach(nodeName => {
+        nodes.push({ id: nodeName, label: nodeName, r: 25 })
+      });
+      this.state.output.forEach(nodeName => {
+       links.push({ source: nodeName, target: this.state.input_from, directed: true })
+      });
+      this.graph.redraw(nodes, links)
+    })
   }
   getChildren() {
     this.setState({
       output: Object.values(book.getChildren(this.state.input_from)).sort(),
+    }, () => {
+      const nodes = []
+      const links = []
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 25 });
+      this.state.output.forEach(nodeName => {
+        nodes.push({ id: nodeName, label: nodeName, r: 25 })
+      });
+      this.state.output.forEach(nodeName => {
+        links.push({ source: this.state.input_from, target: nodeName, directed: true })
+      });
+      this.graph.redraw(nodes, links);
     });
-  }
+  } 
   getAdjacent() {
     this.setState({
       output: Object.values(book.getAdjacent(this.state.input_from)),
     }, () => {
-      reset(greuler_object);
-      greuler_object.data.nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 50 });
-      this.state.output.forEach(nodeName => {
-        greuler_object.data.nodes.push({ id: nodeName, label: nodeName, r: 25 })
-      });
-      this.state.output.forEach(nodeName => {
-        greuler_object.data.links.push({ source: this.state.input_from, target: nodeName, directed: true })
-      });
-      greuler(greuler_object).update();
+      greuler(greuler_object).update(); 
     });
   }
 
@@ -90,8 +104,9 @@ class Map extends React.Component {
     const bounded = this;
     return (
       <div className="map-component">
+      <div className="header">Spinoza Navigator</div>
       <div className="options-container">
-          <div className="search-title">SEARCH TYPES</div>
+
           <div className="options">
             <a href="#target3" id="target3" className="target" name="getAdjacent" onClick={this.handleQueryTypeSelection}>getAdjacent</a>
             <a href="#target1" id="target1" className="target" name="getChildren" onClick={this.handleQueryTypeSelection}>getChildren</a>
@@ -101,6 +116,7 @@ class Map extends React.Component {
             <a href="#target6" id="target6" className="target" name="getConnections" onClick={this.handleQueryTypeSelection}>getConnection</a>
           </div>
         </div>
+
         
         <div className="form">
           <input placeholder="from" type="text" onChange={this.handleFromField} />
@@ -108,14 +124,14 @@ class Map extends React.Component {
           <button onClick={() => {this[bounded.state.query_type]();}}>getData</button>
         </div>
         
-        <div style={{border: '1px solid black'}}>query output: {JSON.stringify(this.state.output)}</div>
-        
+        {/*<div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>*/}
+       
         <div className="contact-links">
           <a target="_blank" href="https://www.linkedin.com/in/jaime-pericas-saez/" className="linkedin"/>
           <a target="_blank" href="https://github.com/jaimefps" className="github"/>
           <a target="_blank" href="https://www.facebook.com/jaime.f.pericas" className="facebook"/>
         </div>
-        <button onClick={()=>this.test()}>test</button>
+        
       </div>
     );
   }
