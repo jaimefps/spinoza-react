@@ -1,0 +1,11 @@
+.introWithGraph {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#demo {
+  border: 1px solid black;
+  height: 500px;
+  width: 1200px;
+}
+
