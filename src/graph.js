@@ -42,31 +42,62 @@ export default class Graph {
     return results;
   }
 
+// original ancestors function
+  // getAncestors(title) {
+  //   const allParents = {};
+  //   const graph = this;
+  //   (function getParents(nodeName) {
+  //     if (graph.nodes[nodeName].parents.length < 1) return;
+  //     graph.nodes[nodeName].parents.forEach((parent) => {
+  //       allParents[parent] = parent;
+  //       getParents(parent);
+  //     });
+  //   }(title));
+  //   return allParents;
+  // }
+// new ancestors function 
   getAncestors(title) {
-    const allParents = {};
+    const propsWithParents = {};
     const graph = this;
     (function getParents(nodeName) {
+      propsWithParents[nodeName] = graph.nodes[nodeName].parents;
       if (graph.nodes[nodeName].parents.length < 1) return;
       graph.nodes[nodeName].parents.forEach((parent) => {
-        allParents[parent] = parent;
         getParents(parent);
       });
     }(title));
-    return allParents;
+    return propsWithParents;
   }
 
+// original descendants function
+  // getDescendants(title) {
+  //   const allChildren = {};
+  //   const graph = this;
+  //   (function getChildren(nodeName) {
+  //     if (graph.nodes[nodeName].children.length < 1) return;
+  //     graph.nodes[nodeName].children.forEach((child) => {
+  //       allChildren[child] = child;
+  //       getChildren(child);
+  //     });
+  //   }(title));
+  //   return allChildren;
+  // }
+
+// new descendants function
   getDescendants(title) {
-    const allChildren = {};
+    const propsWithChildren = {};
     const graph = this;
     (function getChildren(nodeName) {
+      propsWithChildren[nodeName] = graph.nodes[nodeName].children;
       if (graph.nodes[nodeName].children.length < 1) return;
       graph.nodes[nodeName].children.forEach((child) => {
-        allChildren[child] = child;
         getChildren(child);
       });
     }(title));
-    return allChildren;
+    return propsWithChildren;
   }
+
+
 
   getConnection(from, to) {
     const connectors = {};

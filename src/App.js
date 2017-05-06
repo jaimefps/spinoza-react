@@ -35,30 +35,35 @@ class Map extends React.Component {
   }
   getAncestors() {
     this.setState({
-      output: Object.values(book.getAncestors(this.state.input_from)).sort(),
+      output: book.getAncestors(this.state.input_from),
+    }, () => {
+      const nodes = [], links = [];
+      for (let key in this.state.output) {
+        nodes.push({ id: key, label: key, r: 25 });
+        this.state.output[key].forEach(parent => {
+          links.push({ source: parent, target: key, directed: true });
+        });
+      }
+      this.graph.redraw(nodes, links);
     });
   }
   getDescendants() {
     this.setState({
-      output: Object.values(book.getDescendants(this.state.input_from)).sort(),
-    });
-  }
-  getParents() {
-    this.setState({
-      output: Object.values(book.getParents(this.state.input_from)).sort(),
+      output: book.getDescendants(this.state.input_from),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 25 });
-      this.state.output.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 25 })
-        links.push({ source: nodeName, target: this.state.input_from, directed: true })
-      });
-      this.graph.redraw(nodes, links)
-    })
+      for (let key in this.state.output) {
+        nodes.push({ id: key, label: key, r: 25 });
+        this.state.output[key].forEach(child => {
+          links.push({ source: key, target: child, directed: true });
+        });
+      }
+      this.graph.redraw(nodes, links);
+    });
   }
   getChildren() {
     this.setState({
-      output: Object.values(book.getChildren(this.state.input_from)).sort(),
+      output: Object.values(book.getChildren(this.state.input_from)),
     }, () => {
       const nodes = [], links = [];
       nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 25 });
@@ -69,6 +74,19 @@ class Map extends React.Component {
       this.graph.redraw(nodes, links);
     });
   } 
+  getParents() {
+    this.setState({
+      output: Object.values(book.getParents(this.state.input_from)),
+    }, () => {
+      const nodes = [], links = [];
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 25 });
+      this.state.output.forEach(nodeName => {
+        nodes.push({ id: nodeName, label: nodeName, r: 25 })
+        links.push({ source: nodeName, target: this.state.input_from, directed: true })
+      });
+      this.graph.redraw(nodes, links)
+    })
+  }
   getAdjacent() {
     this.setState({
       output: book.getAdjacent(this.state.input_from),
@@ -129,11 +147,6 @@ class Map extends React.Component {
         
         {this.state.output === '' ? null : <div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>}
        
-        <div className="contact-links">
-          <a target="_blank" href="https://www.linkedin.com/in/jaime-pericas-saez/" className="linkedin"/>
-          <a target="_blank" href="https://github.com/jaimefps" className="github"/>
-          <a target="_blank" href="https://www.facebook.com/jaime.f.pericas" className="facebook"/>
-        </div>
         
       </div>
     );
@@ -141,3 +154,8 @@ class Map extends React.Component {
 }
 
 export default Map;
+        /*<div className="contact-links">
+          <a target="_blank" href="https://www.linkedin.com/in/jaime-pericas-saez/" className="linkedin"/>
+          <a target="_blank" href="https://github.com/jaimefps" className="github"/>
+          <a target="_blank" href="https://www.facebook.com/jaime.f.pericas" className="facebook"/>
+        </div>*/
