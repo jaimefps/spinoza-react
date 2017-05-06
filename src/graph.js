@@ -23,9 +23,10 @@ export default class Graph {
   }
   
   getAdjacent(title) {
-    const result = [];
-    result.push(this.getChildren(title));
-    result.push(this.getParents(title));
+    const result = {
+      children: this.getChildren(title),
+      parents: this.getParents(title),
+    };
     return result;
   }
 

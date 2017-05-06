@@ -3,7 +3,6 @@ import greuler from 'greuler/dist/greuler.min.js';
 import { book } from './graph';
 import GraphViz from './greuler-obj-builder.js';
 import './assets/app.css';
-const greuler_object = {}
 
 class Map extends React.Component {
   constructor(props) {
@@ -48,14 +47,11 @@ class Map extends React.Component {
     this.setState({
       output: Object.values(book.getParents(this.state.input_from)).sort(),
     }, () => {
-      const nodes = []
-      const links = []
+      const nodes = [], links = [];
       nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 25 });
       this.state.output.forEach(nodeName => {
         nodes.push({ id: nodeName, label: nodeName, r: 25 })
-      });
-      this.state.output.forEach(nodeName => {
-       links.push({ source: nodeName, target: this.state.input_from, directed: true })
+        links.push({ source: nodeName, target: this.state.input_from, directed: true })
       });
       this.graph.redraw(nodes, links)
     })
@@ -64,13 +60,10 @@ class Map extends React.Component {
     this.setState({
       output: Object.values(book.getChildren(this.state.input_from)).sort(),
     }, () => {
-      const nodes = []
-      const links = []
+      const nodes = [], links = [];
       nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 25 });
       this.state.output.forEach(nodeName => {
         nodes.push({ id: nodeName, label: nodeName, r: 25 })
-      });
-      this.state.output.forEach(nodeName => {
         links.push({ source: this.state.input_from, target: nodeName, directed: true })
       });
       this.graph.redraw(nodes, links);
@@ -78,9 +71,19 @@ class Map extends React.Component {
   } 
   getAdjacent() {
     this.setState({
-      output: Object.values(book.getAdjacent(this.state.input_from)),
+      output: book.getAdjacent(this.state.input_from),
     }, () => {
-      greuler(greuler_object).update(); 
+      const nodes = [], links = [];
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 25 });
+      this.state.output.children.forEach(nodeName => {
+        nodes.push({ id: nodeName, label: nodeName, r: 25 })
+        links.push({ source: this.state.input_from, target: nodeName, directed: true })
+      });
+      this.state.output.parents.forEach(nodeName => {
+        nodes.push({ id: nodeName, label: nodeName, r: 25 })
+        links.push({ source: nodeName, target: this.state.input_from, directed: true })
+      });
+      this.graph.redraw(nodes, links);
     });
   }
 
@@ -124,7 +127,7 @@ class Map extends React.Component {
           <button onClick={() => {this[bounded.state.query_type]();}}>getData</button>
         </div>
         
-        {/*<div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>*/}
+        {this.state.output === '' ? null : <div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>}
        
         <div className="contact-links">
           <a target="_blank" href="https://www.linkedin.com/in/jaime-pericas-saez/" className="linkedin"/>

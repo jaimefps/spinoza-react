@@ -1,5 +1,5 @@
 * {
-  background-color: ghostwhite;
+  background-color: #E0E0E0;
 }
 .map-component {
   display: flex;
@@ -15,13 +15,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 55%;
+  width: 20%;
   height: 50px;
   font-size: 30px;
   color: ghostwhite;
-  background-color: darkred;
+  background-color: #303030;
   border-radius: 5px;
-  border: 1px solid red;
+  border: 1px solid #030303;
 }
 .options-container {
   display: flex;
@@ -43,7 +43,7 @@
 }
 :target {
   border-radius: 5px;
-  background-color: lightseagreen;
+  background-color: ghostwhite;
 }
 input {
   margin: 5px;
