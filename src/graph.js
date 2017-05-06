@@ -43,20 +43,20 @@ export default class Graph {
   }
 
 // original ancestors function
-  // getAncestors(title) {
-  //   const allParents = {};
-  //   const graph = this;
-  //   (function getParents(nodeName) {
-  //     if (graph.nodes[nodeName].parents.length < 1) return;
-  //     graph.nodes[nodeName].parents.forEach((parent) => {
-  //       allParents[parent] = parent;
-  //       getParents(parent);
-  //     });
-  //   }(title));
-  //   return allParents;
-  // }
-// new ancestors function 
   getAncestors(title) {
+    const allParents = {};
+    const graph = this;
+    (function getParents(nodeName) {
+      if (graph.nodes[nodeName].parents.length < 1) return;
+      graph.nodes[nodeName].parents.forEach((parent) => {
+        allParents[parent] = parent;
+        getParents(parent);
+      });
+    }(title));
+    return allParents;
+  }
+// new ancestors function 
+  getAncestorsGreuler(title) {
     const propsWithParents = {};
     const graph = this;
     (function getParents(nodeName) {
@@ -70,21 +70,20 @@ export default class Graph {
   }
 
 // original descendants function
-  // getDescendants(title) {
-  //   const allChildren = {};
-  //   const graph = this;
-  //   (function getChildren(nodeName) {
-  //     if (graph.nodes[nodeName].children.length < 1) return;
-  //     graph.nodes[nodeName].children.forEach((child) => {
-  //       allChildren[child] = child;
-  //       getChildren(child);
-  //     });
-  //   }(title));
-  //   return allChildren;
-  // }
-
-// new descendants function
   getDescendants(title) {
+    const allChildren = {};
+    const graph = this;
+    (function getChildren(nodeName) {
+      if (graph.nodes[nodeName].children.length < 1) return;
+      graph.nodes[nodeName].children.forEach((child) => {
+        allChildren[child] = child;
+        getChildren(child);
+      });
+    }(title));
+    return allChildren;
+  }
+// new descendants function
+  getDescendantsGreuler(title) {
     const propsWithChildren = {};
     const graph = this;
     (function getChildren(nodeName) {

@@ -30,12 +30,12 @@ class Map extends React.Component {
 
   getConnections() {
     this.setState({
-      output: Object.values(book.getConnection(this.state.input_from, this.state.input_to)).sort(),
+      output: book.getConnection(this.state.input_from, this.state.input_to),
     });
   }
   getAncestors() {
     this.setState({
-      output: book.getAncestors(this.state.input_from),
+      output: book.getAncestorsGreuler(this.state.input_from),
     }, () => {
       const nodes = [], links = [];
       for (let key in this.state.output) {
@@ -49,7 +49,7 @@ class Map extends React.Component {
   }
   getDescendants() {
     this.setState({
-      output: book.getDescendants(this.state.input_from),
+      output: book.getDescendantsGreuler(this.state.input_from),
     }, () => {
       const nodes = [], links = [];
       for (let key in this.state.output) {
