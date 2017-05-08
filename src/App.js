@@ -154,3 +154,8 @@ class Map extends React.Component {
 }
 
 export default Map;
+        /*<div className="contact-links">
+          <a target="_blank" href="https://www.linkedin.com/in/jaime-pericas-saez/" className="linkedin"/>
+          <a target="_blank" href="https://github.com/jaimefps" className="github"/>
+          <a target="_blank" href="https://www.facebook.com/jaime.f.pericas" className="facebook"/>
+        </div>*/
