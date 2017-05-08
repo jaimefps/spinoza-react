@@ -39,7 +39,7 @@ class Map extends React.Component {
     }, () => {
       const nodes = [], links = [];
       for (let key in this.state.output) {
-        nodes.push({ id: key, label: key, r: 22 });
+        nodes.push({ id: key, label: key, r: 27 });
         this.state.output[key].forEach(parent => {
           links.push({ source: parent, target: key, directed: true });
         });
@@ -53,7 +53,7 @@ class Map extends React.Component {
     }, () => {
       const nodes = [], links = [];
       for (let key in this.state.output) {
-        nodes.push({ id: key, label: key, r: 22 });
+        nodes.push({ id: key, label: key, r: 27 });
         this.state.output[key].forEach(child => {
           links.push({ source: key, target: child, directed: true });
         });
@@ -61,14 +61,14 @@ class Map extends React.Component {
       this.graph.redraw(nodes, links);
     });
   }
-  getChildren() {
+  getChildren(e) {  
     this.setState({
       output: Object.values(book.getChildren(this.state.input_from)),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 22 });
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 27 });
       this.state.output.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 22 })
+        nodes.push({ id: nodeName, label: nodeName, r: 27 })
         links.push({ source: this.state.input_from, target: nodeName, directed: true })
       });
       this.graph.redraw(nodes, links);
@@ -79,9 +79,9 @@ class Map extends React.Component {
       output: Object.values(book.getParents(this.state.input_from)),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 22 });
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 27 });
       this.state.output.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 22 })
+        nodes.push({ id: nodeName, label: nodeName, r: 27 })
         links.push({ source: nodeName, target: this.state.input_from, directed: true })
       });
       this.graph.redraw(nodes, links)
@@ -92,13 +92,13 @@ class Map extends React.Component {
       output: book.getAdjacent(this.state.input_from),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 22 });
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 27 });
       this.state.output.children.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 22 })
+        nodes.push({ id: nodeName, label: nodeName, r: 27 })
         links.push({ source: this.state.input_from, target: nodeName, directed: true })
       });
       this.state.output.parents.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 22 })
+        nodes.push({ id: nodeName, label: nodeName, r: 27 })
         links.push({ source: nodeName, target: this.state.input_from, directed: true })
       });
       this.graph.redraw(nodes, links);
@@ -142,7 +142,7 @@ class Map extends React.Component {
         <div className="form">
           <input placeholder="from" type="text" onChange={this.handleFromField} />
           {bounded.state.query_type === 'getConnections' ? <input placeholder="to" type="text" onChange={this.handleToField} /> : null}
-          <button onClick={() => {this[bounded.state.query_type]();}}>GET DATA</button>
+          <button onKeyPress={this[bounded.state.query_type]} onClick={() => {this[bounded.state.query_type]()}}>GET DATA</button>
         </div>
         
         {/*{this.state.output === '' ? null : <div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>}*/}
@@ -154,8 +154,3 @@ class Map extends React.Component {
 }
 
 export default Map;
-        /*<div className="contact-links">
-          <a target="_blank" href="https://www.linkedin.com/in/jaime-pericas-saez/" className="linkedin"/>
-          <a target="_blank" href="https://github.com/jaimefps" className="github"/>
-          <a target="_blank" href="https://www.facebook.com/jaime.f.pericas" className="facebook"/>
-        </div>*/

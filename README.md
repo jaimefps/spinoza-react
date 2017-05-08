@@ -16,6 +16,9 @@ All other components are being saved for a later time when the webpage may riche
 
 3:: credits, inpirations, etc.
 
+4:: display message when no connection or data is applicable to query
+
+5:: 
 
 TO RUN APP LOCALLY
 `npm i bower`
