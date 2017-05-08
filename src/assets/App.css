@@ -1,5 +1,5 @@
 body {
-  background:url(icons/pixel_water.png) repeat left top;
+  background:url(icons/pixel_water.jpg) repeat left top;
 }
 .map-component {
   display: flex;
@@ -15,13 +15,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 20%;
-  height: 50px;
+  font-family: san-serif; 
   font-size: 30px;
-  color: ghostwhite;
-  background-image: url(icons/pixel_colors.png);
+  font-weight: bold;
+  color: black;
+  background: white;
+  opacity: 0.9;
+  padding: 5px 8px 5px 8px;
+  border: 2px solid black;
   border-radius: 2px;
-  /*border: 1px solid #030303;*/
 }
 .options-container {
   display: flex;
@@ -36,23 +38,41 @@ body {
 }
 .target {
   margin: 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.4ch;
+  font-size: 12px;
+  font-weight: bold;
   text-decoration: none;
-  border: 1px solid grey;
-  border-radius: 5px;
-  padding: 4px;
+  background: black; 
+  color: white;
+  border-radius: 4px;
+  padding: 8px 15px;
+}
+.target:hover {
+  box-shadow: 2px 4px 3px white;
 }
 :target {
-  border-radius: 5px;
-  background-color: ghostwhite;
+  background: white;
+  color: black;
+}
+:target:hover {
+  box-shadow: 2px 4px 3px black;
 }
 input {
   margin: 5px;
   padding: 4px;
-  border: 1px solid blue;
+  border: 1px solid red;
   width: 70px;
 }
 button {
-  padding: 3px;
-  background-color: lightgreen;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: black;
+  color: white;
   font-weight: bold;
+}
+button:hover {
+  background-color: grey;
+  cursor: pointer;
 }

@@ -12,7 +12,7 @@ class Map extends React.Component {
       input_from: '',
       input_to: '',
       output: '',
-      query_type: 'getAdjacent', 
+      query_type: '', 
     };
 
     this.getConnections = this.getConnections.bind(this);
@@ -129,12 +129,12 @@ class Map extends React.Component {
       <div className="options-container">
 
           <div className="options">
-            <a href="#target3" id="target3" className="target" name="getAdjacent" onClick={this.handleQueryTypeSelection}>getAdjacent</a>
-            <a href="#target1" id="target1" className="target" name="getChildren" onClick={this.handleQueryTypeSelection}>getChildren</a>
-            <a href="#target5" id="target5" className="target" name="getDescendants" onClick={this.handleQueryTypeSelection}>getDescendants</a>
-            <a href="#target2" id="target2" className="target" name="getParents" onClick={this.handleQueryTypeSelection}>getParents</a>
-            <a href="#target4" id="target4" className="target" name="getAncestors" onClick={this.handleQueryTypeSelection}>getAncestors</a>
-            <a href="#target6" id="target6" className="target" name="getConnections" onClick={this.handleQueryTypeSelection}>getConnection</a>
+            <a href="#target3" id="target3" className="target" name="getAdjacent" onClick={this.handleQueryTypeSelection}>Get Adjacent</a>
+            <a href="#target1" id="target1" className="target" name="getChildren" onClick={this.handleQueryTypeSelection}>Get Children</a>
+            <a href="#target5" id="target5" className="target" name="getDescendants" onClick={this.handleQueryTypeSelection}>Get Descendants</a>
+            <a href="#target2" id="target2" className="target" name="getParents" onClick={this.handleQueryTypeSelection}>get Parents</a>
+            <a href="#target4" id="target4" className="target" name="getAncestors" onClick={this.handleQueryTypeSelection}>get Ancestors</a>
+            <a href="#target6" id="target6" className="target" name="getConnections" onClick={this.handleQueryTypeSelection}>get Connection</a>
           </div>
         </div>
 
@@ -145,7 +145,7 @@ class Map extends React.Component {
           <button onClick={() => {this[bounded.state.query_type]();}}>getData</button>
         </div>
         
-        {this.state.output === '' ? null : <div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>}
+        {/*{this.state.output === '' ? null : <div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>}*/}
        
         
       </div>
