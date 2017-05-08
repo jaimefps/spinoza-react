@@ -129,12 +129,12 @@ class Map extends React.Component {
       <div className="options-container">
 
           <div className="options">
-            <a href="#target3" id="target3" className="target" name="getAdjacent" onClick={this.handleQueryTypeSelection}>Get Adjacent</a>
-            <a href="#target1" id="target1" className="target" name="getChildren" onClick={this.handleQueryTypeSelection}>Get Children</a>
-            <a href="#target5" id="target5" className="target" name="getDescendants" onClick={this.handleQueryTypeSelection}>Get Descendants</a>
-            <a href="#target2" id="target2" className="target" name="getParents" onClick={this.handleQueryTypeSelection}>get Parents</a>
-            <a href="#target4" id="target4" className="target" name="getAncestors" onClick={this.handleQueryTypeSelection}>get Ancestors</a>
-            <a href="#target6" id="target6" className="target" name="getConnections" onClick={this.handleQueryTypeSelection}>get Connection</a>
+            <a href="#adjacent" id="adjacent" className="target" name="getAdjacent" onClick={this.handleQueryTypeSelection}>Get Adjacent</a>
+            <a href="#children" id="children" className="target" name="getChildren" onClick={this.handleQueryTypeSelection}>Get Children</a>
+            <a href="#descendants" id="descendants" className="target" name="getDescendants" onClick={this.handleQueryTypeSelection}>Get Descendants</a>
+            <a href="#parents" id="parents" className="target" name="getParents" onClick={this.handleQueryTypeSelection}>get Parents</a>
+            <a href="#ancestors" id="ancestors" className="target" name="getAncestors" onClick={this.handleQueryTypeSelection}>get Ancestors</a>
+            <a href="#connections" id="connections" className="target" name="getConnections" onClick={this.handleQueryTypeSelection}>get Connection</a>
           </div>
         </div>
 
@@ -142,7 +142,7 @@ class Map extends React.Component {
         <div className="form">
           <input placeholder="from" type="text" onChange={this.handleFromField} />
           {bounded.state.query_type === 'getConnections' ? <input placeholder="to" type="text" onChange={this.handleToField} /> : null}
-          <button onClick={() => {this[bounded.state.query_type]();}}>getData</button>
+          <button onClick={() => {this[bounded.state.query_type]();}}>GET DATA</button>
         </div>
         
         {/*{this.state.output === '' ? null : <div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>}*/}

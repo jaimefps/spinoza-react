@@ -3,6 +3,17 @@ webapp for spinoza's Ethics
 
 All work will now be done on `app.js` , all other components are being saved for a later time when the webpage may richer in content.
 
+*Features for MVP:*
+
+1:: implement get-connection
+
+*Extra Features:*
+
+1:: Node shape dependant on type (axiom, proposition, definition, etc)
+2:: instructions shadow-box
+3:: credits, inpirations, etc.
+
+
 In order to run the app locally:
 
 `npm i bower`
