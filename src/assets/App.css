@@ -1,5 +1,5 @@
-* {
-  background-color: #E0E0E0;
+body {
+  background:url(icons/pixel_water.png) repeat left top;
 }
 .map-component {
   display: flex;
@@ -19,9 +19,9 @@
   height: 50px;
   font-size: 30px;
   color: ghostwhite;
-  background-color: #303030;
-  border-radius: 5px;
-  border: 1px solid #030303;
+  background-image: url(icons/pixel_colors.png);
+  border-radius: 2px;
+  /*border: 1px solid #030303;*/
 }
 .options-container {
   display: flex;
