@@ -4,6 +4,8 @@ import { book } from './graph';
 import GraphViz from './greuler-obj-builder.js';
 import './assets/app.css';
 
+import Who from './who';
+
 class Map extends React.Component {
   constructor(props) {
     super(props);
@@ -156,13 +158,20 @@ class Map extends React.Component {
         {/*{this.state.output === '' ? null : <div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>}*/}
         <div className="shadow-box" style={{display: this.state.showIntro ? '' : 'none'}}> 
           <div className="box-title-close">
-            <div className="box-title">How To Navigate Spinoza</div>
+            <div className="box-title">HOW TO NAVIGATE SPINOZA</div>
             <div className="close-window" onClick={() => { this.handleIntroBoxes()}}> X </div>
           </div>
           <div className="box-content">
-            <div className="what">what</div>
-            <div className="how">how</div>
-            <div className="who">who</div>
+            
+            <div className="what">
+              <div className="boxy-title">what</div>
+            </div>
+            
+            <div className="how">
+              <div className="boxy-title">how</div>
+            </div>
+            
+            <Who />
           </div>
         </div>
       </div>
@@ -171,9 +180,3 @@ class Map extends React.Component {
 }
 
 export default Map;
-
-/*<div className="contact-links">
-  <a target="_blank" href="https://www.linkedin.com/in/jaime-pericas-saez/" className="linkedin"/>
-  <a target="_blank" href="https://github.com/jaimefps" className="github"/>
-  <a target="_blank" href="https://www.facebook.com/jaime.f.pericas" className="facebook"/>
-</div>*/
