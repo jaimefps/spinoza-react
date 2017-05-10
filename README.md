@@ -2,7 +2,7 @@
 WEB APP FOR VISUALIZING SPINOZA'S ETHICS AS A GRAPH 
 
 All work is done on `app.js`.
-All other components are being saved for a later time when the webpage may richer in content.
+Other components made at a later time when the webpage becomes richer in content.
 
 *MVP:*
 
