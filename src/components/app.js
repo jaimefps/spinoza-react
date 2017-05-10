@@ -156,16 +156,16 @@ class Map extends React.Component {
         </div>
 
         <div className="form">
-          <div className="instructions-bttn" onClick={() => {this.handleIntroBoxes()}}>instructions / credits</div>
+          <button onClick={() => {this[bounded.state.query_type]()}}>GET DATA</button>
           <input placeholder="from" type="text" onChange={this.handleFromField} />
           {bounded.state.query_type === 'getConnections' ? <input placeholder="to" type="text" onChange={this.handleToField} /> : null}
-          <button onClick={() => {this[bounded.state.query_type]()}}>GET DATA</button>
+          <div className="instructions-bttn" onClick={() => {this.handleIntroBoxes()}}>instructions / credits</div>
         </div>
         {/*{this.state.output === '' ? null : <div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>}*/}
         <div className="shadow-box" style={{display: this.state.showIntro ? '' : 'none'}}> 
           
           <div className="box-title-close">
-            <div className="box-title">HOW TO NAVIGATE SPINOZA</div>
+            <div className="box-title">INFORMATION</div>
             <div className="close-window" onClick={() => { this.handleIntroBoxes()}}> X </div>
           </div>
 

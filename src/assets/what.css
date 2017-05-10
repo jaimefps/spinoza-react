@@ -1,0 +1,11 @@
+.what-text {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 15px;
+}
+span {
+  font-style: italic;
+}
+.sep-link {
+  color: red;
+}

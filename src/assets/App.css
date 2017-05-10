@@ -76,7 +76,7 @@ body {
   cursor: pointer;
   margin-left: 10px;
   border-radius: 2px;
-  border: 2px dotted white;
+  border: 1px solid white;
   padding: 2px 10px;
   letter-spacing: 0.3ch;
   font-family: san-serif; 
@@ -141,7 +141,7 @@ button:hover {
 .box-title-close {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center space-around;
   align-items: center;
   font-size: 20px;
   width: 90%;
@@ -151,16 +151,28 @@ button:hover {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   letter-spacing: 0.2ch;
 }
+.box-title {
+  letter-spacing: 0.3ch;
+  font-size: 18px;
+  color: black;
+  border: 2px solid black;
+  padding: 5px 16px;
+  border-radius: 2px;
+  background: white;
+  box-shadow: 1px 1px 8px black;
+}
 .close-window {
   display: flex;
-  border: 1px solid grey;
-  border-radius: 3px;
+  border: 2px solid black;
+  border-radius: 2px;
   padding: 1px 6px;
   cursor: pointer;
-  background: black;
-  color: white;
-  box-shadow: 2px 2px 2px lightgrey;
-  margin-right: -40px;
+  background: lightgrey;
+  color: black;
+  box-shadow: 1px 1px 8px black;
+  margin-right: -44px;
+  font-size: 18px;
+  text-align: center;
 }
 .box-content {
   display: flex;
@@ -180,7 +192,7 @@ button:hover {
   border-radius: 2px;
   background: #3C3C3C;
   width: 28%;
-  padding: 10px;
+  padding: 15px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   letter-spacing: 0.3ch;
 }
