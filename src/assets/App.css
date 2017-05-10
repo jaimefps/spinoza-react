@@ -19,7 +19,7 @@ body {
   align-items: center;
 }
 .header > div {
-  font-family: san-serif; 
+  letter-spacing: 0.1ch; 
   font-weight: bold;
   color: black;
   background: white;
@@ -133,14 +133,10 @@ button:hover {
   width: 90%;
   bottom: 10px;
   background: grey;
-  box-shadow: 5px 5px 20px lightgrey;
+  box-shadow: 5px 5px 20px black;
   color: white;
   letter-spacing: 0.2ch;
-  border-radius: 1px;
-  border-left: 2px solid lightgrey;
-  border-top: 2px solid lightgrey;
-  border-bottom:2px solid black;
-  border-right:2px solid black;
+  border-radius: 2px;
 }
 .box-title-close {
   display: flex;
@@ -152,12 +148,14 @@ button:hover {
   position: absolute;
   top: 10px;
   text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 0.2ch;
 }
 .close-window {
   display: flex;
   border: 1px solid grey;
-  border-radius: 2px;
-  padding: 3px 6px;
+  border-radius: 3px;
+  padding: 1px 6px;
   cursor: pointer;
   background: black;
   color: white;
@@ -178,14 +176,13 @@ button:hover {
   flex-direction: column;
   align-items: center;
   margin: 10px;
-  border-left: 2px solid darkgrey;
-  border-top: 2px solid darkgrey;
-  border-bottom:2px solid black;
-  border-right:2px solid black;
+  box-shadow: 4px 4px 4px black;
   border-radius: 2px;
-  background: #2A2A2A;
+  background: #3C3C3C;
   width: 28%;
   padding: 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 0.3ch;
 }
 .boxy-title {
   border: 1px solid white;

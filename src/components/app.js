@@ -1,10 +1,14 @@
 import React from 'react'; 
 import greuler from 'greuler/dist/greuler.min.js';
-import { book } from './graph';
-import GraphViz from './greuler-obj-builder.js';
-import './assets/app.css';
 
+import { book } from '../graph';
+import GraphViz from '../greuler-obj-builder.js';
+
+import What from './what';
+import How from './how';
 import Who from './who';
+
+import '../assets/app.css';
 
 class Map extends React.Component {
   constructor(props) {
@@ -43,7 +47,7 @@ class Map extends React.Component {
     }, () => {
       const nodes = [], links = [];
       for (let key in this.state.output) {
-        nodes.push({ id: key, label: key, r: 27 });
+        nodes.push({ id: key, label: key, r: 26 });
         this.state.output[key].forEach(parent => {
           links.push({ source: parent, target: key, directed: true });
         });
@@ -57,7 +61,7 @@ class Map extends React.Component {
     }, () => {
       const nodes = [], links = [];
       for (let key in this.state.output) {
-        nodes.push({ id: key, label: key, r: 27 });
+        nodes.push({ id: key, label: key, r: 26 });
         this.state.output[key].forEach(child => {
           links.push({ source: key, target: child, directed: true });
         });
@@ -70,9 +74,9 @@ class Map extends React.Component {
       output: Object.values(book.getChildren(this.state.input_from)),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 27 });
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 26 });
       this.state.output.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 27 })
+        nodes.push({ id: nodeName, label: nodeName, r: 26 })
         links.push({ source: this.state.input_from, target: nodeName, directed: true })
       });
       this.graph.redraw(nodes, links);
@@ -83,9 +87,9 @@ class Map extends React.Component {
       output: Object.values(book.getParents(this.state.input_from)),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 27 });
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 26 });
       this.state.output.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 27 })
+        nodes.push({ id: nodeName, label: nodeName, r: 26 })
         links.push({ source: nodeName, target: this.state.input_from, directed: true })
       });
       this.graph.redraw(nodes, links)
@@ -96,13 +100,13 @@ class Map extends React.Component {
       output: book.getAdjacent(this.state.input_from),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 27 });
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 26 });
       this.state.output.children.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 27 })
+        nodes.push({ id: nodeName, label: nodeName, r: 26 })
         links.push({ source: this.state.input_from, target: nodeName, directed: true })
       });
       this.state.output.parents.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 27 })
+        nodes.push({ id: nodeName, label: nodeName, r: 26 })
         links.push({ source: nodeName, target: this.state.input_from, directed: true })
       });
       this.graph.redraw(nodes, links);
@@ -135,17 +139,19 @@ class Map extends React.Component {
     const bounded = this;
     return (
       <div className="map-component">
+        
         <div className="header">
           <div className="title">SPINOZA NAVIGATOR</div>
         </div>
+
         <div className="options-container">
           <div className="options">
             <a href="#adjacent" id="adjacent" className="target" name="getAdjacent" onClick={this.handleQueryTypeSelection}>Get Adjacent</a>
             <a href="#children" id="children" className="target" name="getChildren" onClick={this.handleQueryTypeSelection}>Get Children</a>
             <a href="#descendants" id="descendants" className="target" name="getDescendants" onClick={this.handleQueryTypeSelection}>Get Descendants</a>
-            <a href="#parents" id="parents" className="target" name="getParents" onClick={this.handleQueryTypeSelection}>get Parents</a>
-            <a href="#ancestors" id="ancestors" className="target" name="getAncestors" onClick={this.handleQueryTypeSelection}>get Ancestors</a>
-            <a href="#connections" id="connections" className="target" name="getConnections" onClick={this.handleQueryTypeSelection}>get Connection</a>
+            <a href="#parents" id="parents" className="target" name="getParents" onClick={this.handleQueryTypeSelection}>Get Parents</a>
+            <a href="#ancestors" id="ancestors" className="target" name="getAncestors" onClick={this.handleQueryTypeSelection}>Get Ancestors</a>
+            <a href="#connections" id="connections" className="target" name="getConnections" onClick={this.handleQueryTypeSelection}>Get Connection</a>
           </div>
         </div>
 
@@ -157,22 +163,18 @@ class Map extends React.Component {
         </div>
         {/*{this.state.output === '' ? null : <div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>}*/}
         <div className="shadow-box" style={{display: this.state.showIntro ? '' : 'none'}}> 
+          
           <div className="box-title-close">
             <div className="box-title">HOW TO NAVIGATE SPINOZA</div>
             <div className="close-window" onClick={() => { this.handleIntroBoxes()}}> X </div>
           </div>
+
           <div className="box-content">
-            
-            <div className="what">
-              <div className="boxy-title">what</div>
-            </div>
-            
-            <div className="how">
-              <div className="boxy-title">how</div>
-            </div>
-            
+            <What />
+            <How />
             <Who />
           </div>
+
         </div>
       </div>
     );

@@ -5,6 +5,11 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+p {
+  text-align: center;
+  margin-top: -5px;
+  margin-bottom: 20px;
+}
 .contact-links {
   display: flex;
   flex-direction: column;
@@ -13,13 +18,12 @@
   width: 200px;
 }
 .link {
-  border: 1px solid #2A2A2A;
-  min-height: 20px;
-  min-width: 60px;
+  min-height: 22px;
+  min-width: 66px;
   background-size: 100%;
   border-radius: 2px;
   margin: 8px;
-  box-shadow: 2px 2px 2px lightgrey;
+  box-shadow: 2px 2px 2px black;
 }
 .github {
   background-image: url('./icons/github.png');
@@ -29,9 +33,4 @@
 }
 .facebook {
   background-image: url('./icons/facebook.png');  
-}
-p {
-  text-align: center;
-  margin-top: -5px;
-  margin-bottom: 10px;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './assets/who.css';
+import '../assets/who.css';
 
 export default class Who extends React.Component {
   render() {

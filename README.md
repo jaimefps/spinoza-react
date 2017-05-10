@@ -20,6 +20,10 @@ Other components made at a later time when the webpage becomes richer in content
 
 5:: get descendants and ancestors by degrees of separation 
 
+6:: colorize the nodes given as input so as to distinguish them from the rest.
+
 TO RUN APP LOCALLY
+
 `npm i`
+
 `npm start`
