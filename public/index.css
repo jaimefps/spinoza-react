@@ -3,12 +3,4 @@
   flex-direction: row;
   justify-content: space-around;
 }
-#demo {
-  height: 475px;
-  width: 1000px;
-  background: black;
-  opacity: 0.9;
-  border-radius: 2px;
-  border: 1px solid white;
-}
 

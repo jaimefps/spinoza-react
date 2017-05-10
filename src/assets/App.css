@@ -1,3 +1,4 @@
+/*main view css*/
 body {
   background:url(icons/pixel_water.jpg) repeat left top;
 }
@@ -13,18 +14,22 @@ body {
 }
 .header {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+.header > div {
   font-family: san-serif; 
-  font-size: 30px;
   font-weight: bold;
   color: black;
   background: white;
   opacity: 0.9;
-  padding: 2px 10px 2px 10px;
-  /*padding: 12px;*/
-  border: 1px solid black;
-  /*border-radius: 50px;*/
+}
+.title {
+  border: 2px solid black;
+  padding: 6px 15px 6px 15px;
+  border-radius: 2px;
+  font-size: 25px;
 }
 .options-container {
   display: flex;
@@ -48,7 +53,7 @@ body {
   background: black; 
   color: white;
   border-radius: 2px;
-  padding: 6px 15px;
+  padding: 6px 14px;
 }
 .target:hover {
   box-shadow: 3px 3px 3px white;
@@ -60,6 +65,31 @@ body {
 :target:hover {
   box-shadow: 3px 3px 3px black;
 }
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.instructions-bttn {
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 2px;
+  border: 2px dotted white;
+  padding: 2px 10px;
+  letter-spacing: 0.3ch;
+  font-family: san-serif; 
+  font-weight: bold;
+  color: white;
+  background: black;
+  opacity: 0.9;
+}
+.instructions-bttn:hover {
+  border:2px dotted black;
+  box-shadow: 2px 2px 2px black;
+  background: white;
+  color: black;
+}
 input {
   margin: 5px;
   padding: 5px;
@@ -69,7 +99,7 @@ input {
   border: 1px solid black;
 }
 button {
-  padding: 6px;
+  height: 27px;
   border-radius: 2px;
   background-color: black;
   color: white;
@@ -77,4 +107,70 @@ button {
 }
 button:hover {
   cursor: pointer;
+  background: white;
+  color: black;
+}
+
+/*svg css*/
+#demo {
+  height: 500px;
+  width: 1000px;
+  background: black;
+  opacity: 0.9;
+  border-radius: 2px;
+}
+
+/*shadow box css*/
+.shadow-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1000;
+  border-radius: 3px;
+  height: 80%;
+  width: 90%;
+  bottom: 10px;
+  background: grey;
+  box-shadow: 5px 5px 5px black;
+  color: white;
+  letter-spacing: 0.2ch;
+}
+.box-title-close {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  width: 90%;
+  position: absolute;
+  top: 10px;
+  /*border: 1px solid red;*/
+  text-align: center;
+}
+.close-window {
+  display: flex;
+  border: 1px solid grey;
+  border-radius: 2px;
+  padding: 3px 6px;
+  cursor: pointer;
+  background: black;
+  color: white;
+  box-shadow: 2px 2px 2px black;
+  margin-right: -40px;
+}
+.box-content {
+  display: flex;
+  flex-direction: row;
+  /*border: 1px solid red;*/
+  width: 95%;
+  height: 90%;
+  position: absolute;
+  bottom: 10px;
+  justify-content: space-around;
+}
+.box-content > div {
+  margin: 10px;
+  border: 1px solid red;
 }

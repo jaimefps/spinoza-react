@@ -21,6 +21,5 @@ All other components are being saved for a later time when the webpage may riche
 5:: get descendants and ancestors by degrees of separation 
 
 TO RUN APP LOCALLY
-`npm i bower`
 `npm i`
 `npm start`

@@ -96,8 +96,6 @@ export default class Graph {
     return propsWithChildren;
   }
 
-
-
   getConnection(from, to) {
     const connectors = {};
     const childrenOfFrom = this.getDescendants(from);

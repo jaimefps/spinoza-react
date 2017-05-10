@@ -12,7 +12,9 @@ class Map extends React.Component {
       input_from: '',
       input_to: '',
       output: '',
-      query_type: '', 
+      query_type: '',
+      showIntro: false,
+      whatIntro: '',
     };
 
     this.getConnections = this.getConnections.bind(this);
@@ -121,13 +123,20 @@ class Map extends React.Component {
     });
   }
 
+  handleIntroBoxes() {
+    this.setState({
+      showIntro: !this.state.showIntro,
+    })
+  }
+
   render() {
     const bounded = this;
     return (
       <div className="map-component">
-      <div className="header">Spinoza Navigator</div>
-      <div className="options-container">
-
+        <div className="header">
+          <div className="title">SPINOZA NAVIGATOR</div>
+        </div>
+        <div className="options-container">
           <div className="options">
             <a href="#adjacent" id="adjacent" className="target" name="getAdjacent" onClick={this.handleQueryTypeSelection}>Get Adjacent</a>
             <a href="#children" id="children" className="target" name="getChildren" onClick={this.handleQueryTypeSelection}>Get Children</a>
@@ -138,24 +147,33 @@ class Map extends React.Component {
           </div>
         </div>
 
-        
         <div className="form">
+          <div className="instructions-bttn" onClick={() => {this.handleIntroBoxes()}}>instructions / credits</div>
           <input placeholder="from" type="text" onChange={this.handleFromField} />
           {bounded.state.query_type === 'getConnections' ? <input placeholder="to" type="text" onChange={this.handleToField} /> : null}
-          <button onKeyPress={this[bounded.state.query_type]} onClick={() => {this[bounded.state.query_type]()}}>GET DATA</button>
+          <button onClick={() => {this[bounded.state.query_type]()}}>GET DATA</button>
         </div>
-        
         {/*{this.state.output === '' ? null : <div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>}*/}
-       
-        
+        <div className="shadow-box" style={{display: this.state.showIntro ? '' : 'none'}}> 
+          <div className="box-title-close">
+            <div className="box-title">How To Navigate Spinoza</div>
+            <div className="close-window" onClick={() => { this.handleIntroBoxes()}}> X </div>
+          </div>
+          <div className="box-content">
+            <div className="what">what</div>
+            <div className="how">how</div>
+            <div className="who">who</div>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 export default Map;
-        /*<div className="contact-links">
-          <a target="_blank" href="https://www.linkedin.com/in/jaime-pericas-saez/" className="linkedin"/>
-          <a target="_blank" href="https://github.com/jaimefps" className="github"/>
-          <a target="_blank" href="https://www.facebook.com/jaime.f.pericas" className="facebook"/>
-        </div>*/
+
+/*<div className="contact-links">
+  <a target="_blank" href="https://www.linkedin.com/in/jaime-pericas-saez/" className="linkedin"/>
+  <a target="_blank" href="https://github.com/jaimefps" className="github"/>
+  <a target="_blank" href="https://www.facebook.com/jaime.f.pericas" className="facebook"/>
+</div>*/

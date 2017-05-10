@@ -5,7 +5,7 @@ export default class GraphViz {
   constructor () {
     this.greuler = greuler({
       target: '#demo',
-      height: 475,
+      height: 500,
       width: 1000,
       data: {
         nodes: [],
