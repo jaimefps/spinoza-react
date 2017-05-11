@@ -1,12 +1,12 @@
 import React from 'react'; 
 import greuler from 'greuler/dist/greuler.min.js';
 
-import { book } from '../data-structures/book';
-import GraphViz from '../data-structures/greuler-viz';
+import { book } from '../data-structures/book.js';
+import GraphViz from '../data-structures/greuler-viz.js';
 
-import What from './what';
-import How from './how';
-import Who from './who';
+import What from './what.js';
+import How from './how.js';
+import Who from './who.js';
 
 import '../assets/App.css';
 
