@@ -170,7 +170,7 @@ class Map extends React.Component {
           <div className="instructions-bttn" onClick={() => {this.handleInfoBox()}}>instructions / credits</div>
         </div>
 
-        {/*{this.state.output === '' ? null : <div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>}*/}
+        {this.state.output === '' ? null : <div style={{border: '3px solid black'}}><pre style={{fontWeight: 'bold'}}>{JSON.stringify(this.state.output)}</pre></div>}
         
         <div className="shadow-box" style={{display: this.state.showIntro ? '' : 'none'}}> 
           

@@ -98,12 +98,37 @@ export default class Graph {
 
   getConnection(from, to) {
     const connectors = {};
-    const childrenOfFrom = this.getDescendants(from);
-    const parentsOfTo = this.getAncestors(to);
-    Object.values(childrenOfFrom).forEach((child) => {
-      if (parentsOfTo[child]) connectors[child] = child;
-    });
-    return connectors;
+    // const descendantsOfFrom = this.getDescendants(from);
+    // const ancestorsOfTo = this.getAncestors(to);
+    // Object.values(descendantsOfFrom).forEach((child) => {
+    //   if (ancestorsOfTo[child]) connectors[child] = child;
+    // });
+
+
+    //get all nodes in each direction.
+    const descendantsEtAl = this.getDescendantsGreuler(from);
+    const ancestorsEtAl = this.getAncestorsGreuler(to);
+    //build the overlap Obj.
+    for (let key in descendantsEtAl) {
+      if (ancestorsEtAl[key]) {
+        connectors[key] = descendantsEtAl[key];
+      }
+    }
+
+    // for (let key in connectors) {
+
+
+
+    //   for (let i = 0; i < conectors[key].parents.length; i++) {
+    //     if (!connectors[connectors[key][i]]) {
+    //       connectors[key][i].splice(i, 1);
+    //     }
+    //   }
+
+
+    // }
+
+    return Object.keys(connectors);
   }
 }
 
