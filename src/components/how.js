@@ -11,9 +11,11 @@ export default class How extends React.Component {
           <div className="notation-list">
           <div className="notation">E = Ethics</div>
           <div className="notation">1 ... 5 = parts</div>
-          <div className="notation">Def = Definition</div>
-          <div className="notation">Ax = Axiom</div>
-          <div className="notation">P = Proposition</div>
+          <div className="notation">Def(#) = Definition(#)</div>
+          <div className="notation">Ax(#) = Axiom(#)</div>
+          <div className="notation">P(#) = Proposition(#)</div>
+          <div className="notation">Cor(#) = Corollary(#)</div>
+          <div className="notation">Sch(#) = Schollium(#)</div>
         </div>
 
         <div className="example-list">

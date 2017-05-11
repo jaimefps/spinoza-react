@@ -18,7 +18,7 @@ export default class What extends React.Component {
           to and from the selected location in the book.
           <br/><br/>
           For more information on Spinoza and his work, see
-          <a className="sep-link" href="https://plato.stanford.edu/entries/spinoza/"> Stanford Encyclopedia of Philosophy.</a></p>
+          <a className="sep-link" target="_blank" href="https://plato.stanford.edu/entries/spinoza/"> Stanford Encyclopedia of Philosophy</a>.</p>
       </div>
     )
   }

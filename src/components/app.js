@@ -39,6 +39,14 @@ class Map extends React.Component {
   getConnections() {
     this.setState({
       output: book.getConnection(this.state.input_from, this.state.input_to),
+    }, () => {
+      const nodes = [], links = [];
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 26 });
+      nodes.push({ id: this.state.input_to, label: this.state.input_to, r: 26 });
+      for (let key in this.state.output) {
+        nodes.push({ id: key, label: key, r: 26 });
+      }
+      this.graph.redraw(nodes, links);
     });
   }
   getAncestors() {
@@ -47,7 +55,7 @@ class Map extends React.Component {
     }, () => {
       const nodes = [], links = [];
       for (let key in this.state.output) {
-        nodes.push({ id: key, label: key, r: 27 });
+        nodes.push({ id: key, label: key, r: 26 });
         this.state.output[key].forEach(parent => {
           links.push({ source: parent, target: key, directed: true });
         });
@@ -61,7 +69,7 @@ class Map extends React.Component {
     }, () => {
       const nodes = [], links = [];
       for (let key in this.state.output) {
-        nodes.push({ id: key, label: key, r: 27 });
+        nodes.push({ id: key, label: key, r: 26 });
         this.state.output[key].forEach(child => {
           links.push({ source: key, target: child, directed: true });
         });
@@ -74,9 +82,9 @@ class Map extends React.Component {
       output: Object.values(book.getChildren(this.state.input_from)),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 27 });
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 26 });
       this.state.output.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 27 })
+        nodes.push({ id: nodeName, label: nodeName, r: 26 })
         links.push({ source: this.state.input_from, target: nodeName, directed: true })
       });
       this.graph.redraw(nodes, links);
@@ -87,9 +95,9 @@ class Map extends React.Component {
       output: Object.values(book.getParents(this.state.input_from)),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 27 });
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 26 });
       this.state.output.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 27 })
+        nodes.push({ id: nodeName, label: nodeName, r: 26 })
         links.push({ source: nodeName, target: this.state.input_from, directed: true })
       });
       this.graph.redraw(nodes, links)
@@ -100,13 +108,13 @@ class Map extends React.Component {
       output: book.getAdjacent(this.state.input_from),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 27 });
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 26 });
       this.state.output.children.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 27 })
+        nodes.push({ id: nodeName, label: nodeName, r: 26 })
         links.push({ source: this.state.input_from, target: nodeName, directed: true })
       });
       this.state.output.parents.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 27 })
+        nodes.push({ id: nodeName, label: nodeName, r: 26 })
         links.push({ source: nodeName, target: this.state.input_from, directed: true })
       });
       this.graph.redraw(nodes, links);
@@ -137,6 +145,7 @@ class Map extends React.Component {
 
   render() {
     const bounded = this;
+    console.log(book)
     return (
       <div className="map-component">
         
@@ -156,12 +165,14 @@ class Map extends React.Component {
         </div>
 
         <div className="form">
-          <button onClick={() => {this[bounded.state.query_type]()}}>GET DATA</button>
           <input placeholder="from" type="text" onChange={this.handleFromField} />
           {bounded.state.query_type === 'getConnections' ? <input placeholder="to" type="text" onChange={this.handleToField} /> : null}
+          <button onClick={() => {this[bounded.state.query_type]()}}>GET DATA</button>
           <div className="instructions-bttn" onClick={() => {this.handleInfoBox()}}>instructions / credits</div>
         </div>
+
         {/*{this.state.output === '' ? null : <div style={{border: '1px solid black'}}>{JSON.stringify(this.state.output)}</div>}*/}
+        
         <div className="shadow-box" style={{display: this.state.showIntro ? '' : 'none'}}> 
           
           <div className="box-title-close">
