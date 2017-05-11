@@ -1,11 +1,8 @@
 # spinoza-react
 WEB APP FOR VISUALIZING SPINOZA'S ETHICS AS A GRAPH 
 
-<!--![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)-->
 ![alt text](src/assets/readme-img/main.png).
-
-All work is done on `app.js`.
-Other components made at a later time when the webpage becomes richer in content.
+![alt text](src/assets/readme-img/info.png).
 
 *MVP:*
 
