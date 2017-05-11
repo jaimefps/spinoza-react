@@ -8,7 +8,7 @@ import What from './what.js';
 import How from './how.js';
 import Who from './who.js';
 
-import '../assets/app.css';
+import '../assets/App.css';
 
 class Map extends React.Component {
   constructor(props) {
