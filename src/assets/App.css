@@ -1,4 +1,3 @@
-/*main view css*/
 body {
   background:url(icons/pixel_water.jpg) repeat left top;
 }
@@ -111,8 +110,6 @@ button:hover {
   background: white;
   color: black;
 }
-
-/*svg css*/
 #demo {
   height: 500px;
   width: 1000px;
@@ -120,8 +117,6 @@ button:hover {
   opacity: 0.9;
   border-radius: 2px;
 }
-
-/*shadow box css*/
 .shadow-box {
   display: flex;
   flex-direction: column;
