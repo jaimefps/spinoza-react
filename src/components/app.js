@@ -145,7 +145,6 @@ class Map extends React.Component {
 
   render() {
     const bounded = this;
-    console.log(book)
     return (
       <div className="map-component">
         
