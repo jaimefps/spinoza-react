@@ -2,7 +2,7 @@
   margin-top: 8px;
 }
 .notation-title {
-  font-size: 15px;
+  font-size: 12px;
   margin-top: 25px;
   text-align: center;
 }
@@ -13,12 +13,13 @@
   border-radius: 3px;
   padding: 3px 6px;
   box-shadow: 2px 2px 2px black;
-  font-size: 13px;
+  font-size: 11px;
 }
 .example {
   display: flex;
   flex-direction: column;
   margin-top: 5px;
+  font-size: 11px;
 }
 .example > div {
   margin: 5px;
@@ -28,4 +29,5 @@
   font-size: 12px;
   margin-top: 15px;
   font-style: italic;
+  color: green;
 }
