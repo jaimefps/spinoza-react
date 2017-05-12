@@ -75,20 +75,20 @@ body {
   cursor: pointer;
   margin-left: 10px;
   border-radius: 2px;
-  border: 2px dotted white;
+  border: 2px dotted black;
   padding: 2px 10px;
   letter-spacing: 0.3ch;
   font-family: san-serif; 
   font-weight: bold;
-  color: white;
-  background: black;
+  color: black;
+  background: white;
   opacity: 0.9;
 }
 .instructions-bttn:hover {
-  border:2px dotted black;
-  box-shadow: 2px 2px 2px black;
-  background: white;
-  color: black;
+  border:2px dotted white;
+  box-shadow: 2px 2px 2px white;
+  background: black;
+  color: white;
 }
 input {
   margin: 5px;

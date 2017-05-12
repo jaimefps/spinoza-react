@@ -46,6 +46,7 @@ class Map extends React.Component {
       for (let key in this.state.output) {
         nodes.push({ id: key, label: key, r: 26 });
       }
+      
       this.graph.redraw(nodes, links);
     });
   }
