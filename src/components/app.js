@@ -7,7 +7,7 @@ import GraphViz from '../data-structures/greuler-viz.js';
 import What from './what.js';
 import How from './how.js';
 import Who from './who.js';
-
+import InvalidInput from './invalidinput'
 import '../assets/App.css';
 
 class Map extends React.Component {
@@ -41,12 +41,12 @@ class Map extends React.Component {
       output: book.getConnection(this.state.input_from, this.state.input_to),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 26 });
-      nodes.push({ id: this.state.input_to, label: this.state.input_to, r: 26 });
       for (let key in this.state.output) {
         nodes.push({ id: key, label: key, r: 26 });
+        this.state.output[key].forEach(child => {
+          links.push({ source: key, target: child, directed: true });
+        });
       }
-      
       this.graph.redraw(nodes, links);
     });
   }
@@ -143,9 +143,15 @@ class Map extends React.Component {
       showIntro: !this.state.showIntro,
     })
   }
+  handleInvalidInputBox() {
+    this.setState({
+      output: '',
+    });
+  }
 
   render() {
     const bounded = this;
+    console.log(this.state.output)
     return (
       <div className="map-component">
         
@@ -174,19 +180,24 @@ class Map extends React.Component {
         {/*{this.state.output === '' ? null : <div style={{border: '3px solid black'}}><pre style={{fontWeight: 'bold'}}>{JSON.stringify(this.state.output)}</pre></div>}*/}
         
         <div className="shadow-box" style={{display: this.state.showIntro ? '' : 'none'}}> 
-          
           <div className="box-title-close">
             <div className="box-title">INFORMATION</div>
             <div className="close-window" onClick={() => { this.handleInfoBox()}}> X </div>
           </div>
-
           <div className="box-content">
             <What />
             <How />
             <Who />
           </div>
-
         </div>
+
+        {
+          typeof this.state.output === 'object' && 
+          Object.keys(this.state.output).length < 2 ?
+          <InvalidInput closePrompt={this.handleInvalidInputBox.bind(this)}/> :
+          null
+        }
+
       </div>
     );
   }
