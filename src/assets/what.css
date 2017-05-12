@@ -3,9 +3,7 @@
   text-align: center;
   font-size: 15px;
 }
-span {
-  font-style: italic;
-}
 .sep-link {
-  color: red;
+  color: yellow;
+  text-decoration: none;
 }
