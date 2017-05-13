@@ -164,7 +164,6 @@ button:hover {
   cursor: pointer;
   background: lightgrey;
   color: black;
-  box-shadow: 1px 1px 8px black;
   margin-right: -44px;
   font-size: 18px;
   text-align: center;
@@ -173,7 +172,6 @@ button:hover {
   border: 2px solid white;
   background: black;
   color: white;
-  box-shadow: 1px 1px 8px white;
 }
 .box-content {
   display: flex;

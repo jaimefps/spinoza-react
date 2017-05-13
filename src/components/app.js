@@ -1,19 +1,16 @@
 import React from 'react'; 
 import greuler from 'greuler/dist/greuler.min.js';
-
 import { book } from '../data-structures/book.js';
 import GraphViz from '../data-structures/greuler-viz.js';
-
 import What from './what.js';
 import How from './how.js';
 import Who from './who.js';
 import InvalidInput from './invalidinput'
 import '../assets/App.css';
 
-class Map extends React.Component {
+export default class Map extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       input_from: '',
       input_to: '',
@@ -22,7 +19,6 @@ class Map extends React.Component {
       showIntro: false,
       whatIntro: '',
     };
-
     this.getConnections = this.getConnections.bind(this);
     this.getAncestors = this.getAncestors.bind(this);
     this.getDescendants = this.getDescendants.bind(this);
@@ -35,8 +31,7 @@ class Map extends React.Component {
     this.handleToField = this.handleToField.bind(this);
     this.graph = new GraphViz()
   }
-
-  getConnections() {
+  getConnections() {  
     this.setState({
       output: book.getConnection(this.state.input_from, this.state.input_to),
     }, () => {
@@ -48,7 +43,7 @@ class Map extends React.Component {
         });
       }
       this.graph.redraw(nodes, links);
-    });
+    }); 
   }
   getAncestors() {
     this.setState({
@@ -78,7 +73,7 @@ class Map extends React.Component {
       this.graph.redraw(nodes, links);
     });
   }
-  getChildren(e) {  
+  getChildren(e) {
     this.setState({
       output: Object.values(book.getChildren(this.state.input_from)),
     }, () => {
@@ -121,7 +116,6 @@ class Map extends React.Component {
       this.graph.redraw(nodes, links);
     });
   }
-
   handleQueryTypeSelection(e) {
     this.setState({
       query_type: e.target.name,
@@ -137,7 +131,6 @@ class Map extends React.Component {
       input_to: e.target.value,
     });
   }
-
   handleInfoBox() {
     this.setState({
       showIntro: !this.state.showIntro,
@@ -148,17 +141,13 @@ class Map extends React.Component {
       output: '',
     });
   }
-
   render() {
     const bounded = this;
-    console.log(this.state.output)
     return (
       <div className="map-component">
-        
         <div className="header">
           <div className="title">SPINOZA NAVIGATOR</div>
         </div>
-
         <div className="options-container">
           <div className="options">
             <a href="#adjacent" id="adjacent" className="target" name="getAdjacent" onClick={this.handleQueryTypeSelection}>Get Adjacent</a>
@@ -169,16 +158,13 @@ class Map extends React.Component {
             <a href="#connections" id="connections" className="target" name="getConnections" onClick={this.handleQueryTypeSelection}>Get Connection</a>
           </div>
         </div>
-
         <div className="form">
           <input placeholder="from" type="text" onChange={this.handleFromField} />
           {bounded.state.query_type === 'getConnections' ? <input placeholder="to" type="text" onChange={this.handleToField} /> : null}
           <button onClick={() => {this[bounded.state.query_type]()}}>GET DATA</button>
           <div className="instructions-bttn" onClick={() => {this.handleInfoBox()}}>instructions / credits</div>
         </div>
-
-        {/*{this.state.output === '' ? null : <div style={{border: '3px solid black'}}><pre style={{fontWeight: 'bold'}}>{JSON.stringify(this.state.output)}</pre></div>}*/}
-        
+        {/*<div style={{border: '3px solid black'}}><pre style={{fontWeight: 'bold'}}>{JSON.stringify(this.state.output)}</pre></div>*/}
         <div className="shadow-box" style={{display: this.state.showIntro ? '' : 'none'}}> 
           <div className="box-title-close">
             <div className="box-title">INFORMATION</div>
@@ -190,17 +176,13 @@ class Map extends React.Component {
             <Who />
           </div>
         </div>
-
         {
           typeof this.state.output === 'object' && 
           Object.keys(this.state.output).length < 1 ?
           <InvalidInput closePrompt={this.handleInvalidInputBox.bind(this)}/> :
           null
         }
-
       </div>
     );
   }
 }
-
-export default Map;
