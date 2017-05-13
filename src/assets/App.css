@@ -160,7 +160,7 @@ button:hover {
   display: flex;
   border: 2px solid black;
   border-radius: 2px;
-  padding: 1px 6px;
+  padding: 1px 4px 1px 6px;
   cursor: pointer;
   background: lightgrey;
   color: black;
