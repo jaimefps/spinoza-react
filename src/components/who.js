@@ -10,7 +10,7 @@ export default class Who extends React.Component {
           <h1 className="author">Jaime Pericás</h1>
           <p>
             Software engineer with an academic background in Philosphy, Art, and Math.
-            Since writing his first line of code, Jaime has been enthraled by code's creative power.
+            Since writing his first line of code, Jaime has been enthralled by code's creative power.
             <br/><br/>
             You can contact him at: jaime.pericas.saez@gmail.com
             <br/><br/>
