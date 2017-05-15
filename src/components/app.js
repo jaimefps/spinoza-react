@@ -1,5 +1,4 @@
 import React from 'react'; 
-import greuler from 'greuler/dist/greuler.min.js';
 import { book } from '../data-structures/book.js';
 import GraphViz from '../data-structures/greuler-viz.js';
 import What from './what.js';

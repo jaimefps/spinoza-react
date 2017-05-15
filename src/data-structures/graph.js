@@ -11,17 +11,14 @@ export default class Graph {
   constructor() {
     this.nodes = {};
   }
-
   addNode(node, content) {
     this.nodes[node] = new Node(node, content);
     return this.nodes[node];
   }
-
   addEdge(fromNode, toNode) {
     this.nodes[fromNode.title].children.push(toNode.title);
     this.nodes[toNode.title].parents.push(fromNode.title);
   }
-  
   getAdjacent(title) {
     const result = {
       children: this.getChildren(title),
@@ -29,33 +26,16 @@ export default class Graph {
     };
     return result;
   }
-
   getParents(title) {
     const results = [];
     this.nodes[title].parents.forEach(nodeName => results.push(nodeName));
     return results;
   }
-
   getChildren(title) {
     const results = [];
     this.nodes[title].children.forEach(nodeName => results.push(nodeName));
     return results;
   }
-
-// original ancestors function
-  getAncestors(title) {
-    const allParents = {};
-    const graph = this;
-    (function getParents(nodeName) {
-      if (graph.nodes[nodeName].parents.length < 1) return;
-      graph.nodes[nodeName].parents.forEach((parent) => {
-        allParents[parent] = parent;
-        getParents(parent);
-      });
-    }(title));
-    return allParents;
-  }
-// new ancestors function 
   getAncestorsGreuler(title) {
     const propsWithParents = {};
     const graph = this;
@@ -68,21 +48,6 @@ export default class Graph {
     }(title));
     return propsWithParents;
   }
-
-// original descendants function
-  getDescendants(title) {
-    const allChildren = {};
-    const graph = this;
-    (function getChildren(nodeName) {
-      if (graph.nodes[nodeName].children.length < 1) return;
-      graph.nodes[nodeName].children.forEach((child) => {
-        allChildren[child] = child;
-        getChildren(child);
-      });
-    }(title));
-    return allChildren;
-  }
-// new descendants function
   getDescendantsGreuler(title) {
     const propsWithChildren = {};
     const graph = this;
@@ -96,7 +61,6 @@ export default class Graph {
     }(title));
     return propsWithChildren;
   }
-
   getConnection(from, to) {
     const connectors = {};
     const descendantsEtAl = this.getDescendantsGreuler(from);

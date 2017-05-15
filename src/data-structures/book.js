@@ -1,9 +1,12 @@
+/* eslint-disable */
 import Graph, { Node } from './graph.js'
 
 export const book = new Graph();
 
+// reference to sources outside the Ethics itself
 const PrinciplesOfCartecianPhilosophy = book.addNode('PCP 19')
 
+// part 1
 const E1Ax1 = book.addNode('E1Ax1');
 const E1Ax2 = book.addNode('E1Ax2');
 const E1Ax3 = book.addNode('E1Ax3');
@@ -301,3 +304,63 @@ const E1P36 = book.addNode('E1P36');
 book.addEdge(E1P25Cor1, E1P36);
 book.addEdge(E1P34, E1P36);
 book.addEdge(E1P16, E1P36);
+
+// part 2
+const E2Def1 = book.addNode('E2Def1');
+const E2Def2 = book.addNode('E2Def2');
+const E2Def3 = book.addNode('E2Def3');
+const E2Def4 = book.addNode('E2Def4');
+const E2Def5 = book.addNode('E2Def5');
+const E2Def6 = book.addNode('E2Def6');
+const E2Def7 = book.addNode('E2Def7');
+
+const E2Ax1 = book.addNode('E2Ax1');
+const E2Ax2 = book.addNode('E2Ax2');
+const E2Ax3 = book.addNode('E2Ax3');
+const E2Ax4 = book.addNode('E2Ax4');
+const E2Ax5 = book.addNode('E2Ax5');
+
+const E2P1 = book.addNode('E2P1');
+book.addEdge(E1P25Cor1, E2P1);
+book.addEdge(E1Def5, E2P1);
+book.addEdge(E1Def6, E2P1);
+
+const E2P1Sch1 = book.addNode('E2P1Sch1');
+
+const E2P2 = book.addNode('E2P2');
+book.addEdge(E1P25Cor1, E2P2);
+book.addEdge(E1Def5, E2P2);
+book.addEdge(E1Def6, E2P2);
+
+const E2P3 = book.addNode('E2P3');
+book.addEdge(E2P1, E2P3);
+book.addEdge(E1P16, E2P3);
+book.addEdge(E1P35, E2P3);
+book.addEdge(E1P15, E2P3);
+
+const E2P3Sch1 = book.addNode('E2P3Sch1');
+book.addEdge(E1P32Cor1, E2P3Sch1);
+book.addEdge(E1P32Cor2, E2P3Sch1);
+book.addEdge(E1P16, E2P3Sch1);
+book.addEdge(E1P34, E2P3Sch1);
+
+const E2P4 = book.addNode('E2P4');
+book.addNode(E1P30, E2P4);
+book.addNode(E1P14Cor1, E2P4);
+
+const E2P5 = book.addNode('E2P5');
+book.addEdge(E2P3, E2P5);
+book.addEdge(E1P25Cor1, E2P5);
+book.addEdge(E1P10, E2P5);
+book.addEdge(E1Ax4, E2P5);
+
+const E2P6 = book.addNode('E2P6');
+book.addEdge(E1P10, E2P6);
+book.addEdge(E1Ax4, E2P6);
+
+const E2P6Cor1 = book.addNode('E2P6Cor1');
+
+const E2P7 = book.addNode('E2P7');
+book.addEdge(E1Ax4, E2P7);
+
+const E2P7Cor1 = book.addNode('E2P7Cor1');

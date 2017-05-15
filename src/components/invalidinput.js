@@ -2,9 +2,6 @@ import React from 'react';
 import '../assets/invalidinput.css';
 
 export default class InvalidInput extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return(
       <div className="invalid-query-shadowbox">
