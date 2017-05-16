@@ -19,16 +19,16 @@ export default class How extends React.Component {
         <div className="example-list">
           <div className="notation-title"> EXAMPLE INPUTS </div>
           <div className="example">
-            <div>click: <span className="notation"> GET CONNECTION </span></div>
-            <div>input: from<span className="notation">E1Def1</span>  to<span className="notation">E1P36</span></div>
+            <div>click: <span className="dummy-bttn"> GET CONNECTION </span></div>
+            <div>input: from<span className="dummy-input">E1Def1</span>  to<span className="dummy-input">E1P36</span></div>
           </div>
           <div className="example">
-            <div>click: <span className="notation"> GET ADJACENT </span></div>
-            <div>input: <span className="notation"> E1P6 </span></div>
+            <div>click: <span className="dummy-bttn"> GET ADJACENT </span></div>
+            <div>input: <span className="dummy-input">E1P6</span></div>
           </div>
           <div className="example">
-            <div>click: <span className="notation"> GET CHILDREN</span></div>
-            <div>input: <span className="notation"> E1Def3 </span></div>
+            <div>click: <span className="dummy-bttn"> GET CHILDREN</span></div>
+            <div>input: <span className="dummy-input">E1Def3</span></div>
           </div>
           <div className="note">NOTE: You can drag around the graph and help the nodes to settle.</div>
         </div>
