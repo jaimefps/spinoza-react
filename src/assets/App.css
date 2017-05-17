@@ -26,7 +26,6 @@ body {
 }
 .title {
   border: 2px solid black;
-
   padding: 6px 15px 6px 15px;
   border-radius: 2px;
   font-size: 25px;
@@ -167,14 +166,12 @@ button:hover {
   box-shadow: 1px 1px 8px black;
 }
 .close-window {
-  /*display: flex;*/
   border: 2px solid black;
   border-radius: 2px;
   padding: 1px 4px 1px 6px;
   cursor: pointer;
   background: lightgrey;
   color: black;
-  /*margin-right: -44px;*/
   font-size: 18px;
   text-align: center;
 }
