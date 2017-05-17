@@ -83,6 +83,11 @@ body {
   background: white;
   opacity: 0.9;
 }
+@media (max-width: 600px) {
+  .instructions-bttn {
+    width: 110px;
+  }
+}
 .instructions-bttn:hover {
   border:2px dotted white;
   box-shadow: 2px 2px 2px white;
@@ -98,11 +103,18 @@ input {
   border: 1px solid black;
 }
 button {
-  height: 27px;
   border-radius: 2px;
   background-color: black;
   color: white;
   font-weight: bold;
+  width: 90px;
+  height: 28px;
+}
+@media (max-width: 600px) {
+  .button {
+    /*height: auto;*/
+    /*width: auto;*/
+  }
 }
 button:hover {
   cursor: pointer;
@@ -119,15 +131,14 @@ button:hover {
 .shadow-box {
   position: fixed;
   z-index: 1000;
-  max-width: 1100px;
-  margin: 50px auto;
-  top: 5vh;
+  max-height: 90vh;
+  max-width: 1000px;
+  top: 15vh;
   background: grey;
   box-shadow: 5px 5px 20px black;
   color: white;
   letter-spacing: 0.2ch;
-  border-radius: 2px;
-  max-height: 90vh;
+  border-radius: 3px;
   overflow: scroll;
   padding: 10px;
 }

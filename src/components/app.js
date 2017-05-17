@@ -153,9 +153,7 @@ export default class Map extends React.Component {
           <div className="options">
             <a href="#adjacent" id="adjacent" className="target" name="getAdjacent" onClick={this.handleQueryTypeSelection}>Get Adjacent</a>
             <a href="#children" id="children" className="target" name="getChildren" onClick={this.handleQueryTypeSelection}>Get Children</a>
-            {/*<a href="#descendants" id="descendants" className="target" name="getDescendants" onClick={this.handleQueryTypeSelection}>Get Descendants</a>*/}
             <a href="#parents" id="parents" className="target" name="getParents" onClick={this.handleQueryTypeSelection}>Get Parents</a>
-            {/*<a href="#ancestors" id="ancestors" className="target" name="getAncestors" onClick={this.handleQueryTypeSelection}>Get Ancestors</a>*/}
             <a href="#connections" id="connections" className="target" name="getConnections" onClick={this.handleQueryTypeSelection}>Get Connection</a>
           </div>
         
@@ -189,3 +187,7 @@ export default class Map extends React.Component {
     );
   }
 }
+
+// BUTTONS FOR DESCENDANTS AND ANCESTORS:
+{/*<a href="#ancestors" id="ancestors" className="target" name="getAncestors" onClick={this.handleQueryTypeSelection}>Get Ancestors</a>*/}
+{/*<a href="#descendants" id="descendants" className="target" name="getDescendants" onClick={this.handleQueryTypeSelection}>Get Descendants</a>*/}
