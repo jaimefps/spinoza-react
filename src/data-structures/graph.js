@@ -1,3 +1,4 @@
+// maybe the 'addEdge' method should be on the Node, not the Graph?
 export class Node {
   constructor(title, content) {
     this.title = title;
@@ -6,7 +7,6 @@ export class Node {
     this.children = [];
   }
 }
-
 export default class Graph {
   constructor() {
     this.nodes = {};

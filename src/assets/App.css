@@ -31,11 +31,11 @@ body {
   border-radius: 2px;
   font-size: 25px;
 }
-.options-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+@media (max-width: 600px) {
+  .options {
+    display:flex;
+    flex-direction: column;
+  }
 }
 .search-title {
   margin: 10px;
@@ -118,35 +118,45 @@ button:hover {
   border-radius: 2px;
 }
 .shadow-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
+  position: fixed;
   z-index: 1000;
-  height: 570px;
-  width: 1100px;
-  bottom: 10px;
+  max-width: 1100px;
+  margin: 50px auto;
+  top: 5vh;
   background: grey;
   box-shadow: 5px 5px 20px black;
   color: white;
   letter-spacing: 0.2ch;
   border-radius: 2px;
+  max-height: 90vh;
+  overflow: scroll;
+  padding: 10px;
+}
+@media (max-width: 600px) {
+  .shadow-box {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    overflow: scroll;
+    width: auto;
+  }
 }
 .box-title-close {
   display: flex;
-  flex-direction: row;
-  justify-content: center space-around;
   align-items: center;
   font-size: 20px;
-  width: 90%;
-  position: absolute;
-  top: 10px;
   text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   letter-spacing: 0.2ch;
 }
+.box-title-wrap {
+  width: 100%;
+  text-align: center;
+}
 .box-title {
+  display: inline-block;
   letter-spacing: 0.3ch;
   font-size: 18px;
   color: black;
@@ -157,14 +167,14 @@ button:hover {
   box-shadow: 1px 1px 8px black;
 }
 .close-window {
-  display: flex;
+  /*display: flex;*/
   border: 2px solid black;
   border-radius: 2px;
   padding: 1px 4px 1px 6px;
   cursor: pointer;
   background: lightgrey;
   color: black;
-  margin-right: -44px;
+  /*margin-right: -44px;*/
   font-size: 18px;
   text-align: center;
 }
@@ -176,24 +186,35 @@ button:hover {
 .box-content {
   display: flex;
   flex-direction: row;
-  width: 95%;
-  height: 90%;
-  position: absolute;
-  bottom: 10px;
   justify-content: space-around;
+  margin-top: 10px;
 }
 .box-content > div {
   display: flex;
+  flex: 1;
+  margin-right: 10px;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
   box-shadow: 4px 4px 4px black;
   border-radius: 2px;
   background: #3C3C3C;
-  width: 28%;
   padding: 15px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   letter-spacing: 0.3ch;
+}
+.box-content > div:last-child {
+  margin-right: 0px;
+}
+@media (max-width: 600px) {
+  .box-content {
+    flex-direction: column;
+  } 
+  .box-content > div {
+    margin: 0px 0px 10px 0px;
+  }
+  .box-content > div:last-child {
+    margin: 0px;
+  }
 }
 .boxy-title {
   border: 1px solid white;

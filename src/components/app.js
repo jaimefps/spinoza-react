@@ -30,6 +30,8 @@ export default class Map extends React.Component {
     this.handleToField = this.handleToField.bind(this);
     this.graph = new GraphViz()
   }
+  // TODO: remove logic from View component, 
+  // move all this logic to the graphViz and pass down the output as parameter...
   getConnections() {  
     this.setState({
       output: book.getConnection(this.state.input_from, this.state.input_to),
@@ -147,7 +149,7 @@ export default class Map extends React.Component {
         <div className="header">
           <div className="title">SPINOZA NAVIGATOR</div>
         </div>
-        <div className="options-container">
+  
           <div className="options">
             <a href="#adjacent" id="adjacent" className="target" name="getAdjacent" onClick={this.handleQueryTypeSelection}>Get Adjacent</a>
             <a href="#children" id="children" className="target" name="getChildren" onClick={this.handleQueryTypeSelection}>Get Children</a>
@@ -156,7 +158,7 @@ export default class Map extends React.Component {
             {/*<a href="#ancestors" id="ancestors" className="target" name="getAncestors" onClick={this.handleQueryTypeSelection}>Get Ancestors</a>*/}
             <a href="#connections" id="connections" className="target" name="getConnections" onClick={this.handleQueryTypeSelection}>Get Connection</a>
           </div>
-        </div>
+        
         <div className="form">
           <input placeholder="from" type="text" onChange={this.handleFromField} />
           {bounded.state.query_type === 'getConnections' ? <input placeholder="to" type="text" onChange={this.handleToField} /> : null}
@@ -166,7 +168,9 @@ export default class Map extends React.Component {
         {/*<div style={{border: '3px solid black'}}><pre style={{fontWeight: 'bold'}}>{JSON.stringify(this.state.output)}</pre></div>*/}
         <div className="shadow-box" style={{display: this.state.showIntro ? '' : 'none'}}> 
           <div className="box-title-close">
-            <div className="box-title">INFORMATION</div>
+            <div className="box-title-wrap">
+              <div className="box-title">INFORMATION</div>
+            </div>
             <div className="close-window" onClick={() => { this.handleInfoBox()}}> X </div>
           </div>
           <div className="box-content">
