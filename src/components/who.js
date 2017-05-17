@@ -9,7 +9,7 @@ export default class Who extends React.Component {
         <div className="contact-links">
           <h1 className="author">Jaime Pericás</h1>
           <p>
-            Software engineer with an academic background in Philosphy, Art, and Math.
+            Software engineer with an academic background in Math, Philosphy, and Art History.
             Since writing his first line of code, Jaime has been enthralled by code's creative power.
             <br/><br/>
             You can contact him at: jaime.pericas.saez@gmail.com
