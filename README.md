@@ -8,21 +8,13 @@ https://spinoza-navigator.herokuapp.com/
 
 *MVP:*
 
-1:: implement get-connection
+MVP finalized.
 
 *EXTRA FEATURES:*
 
-1:: Node shape dependant on type (axiom, proposition, definition, etc)
-
-2:: instructions shadow-box
-
-3:: credits, inpirations, etc.
-
-4:: display message when no connection or data is applicable to query
-
-5:: get descendants and ancestors by degrees of separation 
-
-6:: colorize the nodes given as input so as to distinguish them from the rest.
+1:: Node shape dependant on type (axiom, proposition, definition, etc);
+2:: colorize the nodes given as input so as to distinguish them from the rest.
+3:: get descendants and ancestors by degrees of separation.
 
 TO RUN APP LOCALLY
 
