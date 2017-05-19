@@ -38,7 +38,7 @@ export default class Map extends React.Component {
     }, () => {
       const nodes = [], links = [];
       for (let key in this.state.output) {
-        nodes.push({ id: key, label: key, r: 27 });
+        nodes.push({ id: key, label: key, r: 15 + key.length * 2 });
         this.state.output[key].forEach(child => {
           links.push({ source: key, target: child, directed: true });
         });
@@ -52,7 +52,7 @@ export default class Map extends React.Component {
     }, () => {
       const nodes = [], links = [];
       for (let key in this.state.output) {
-        nodes.push({ id: key, label: key, r: 27 });
+        nodes.push({ id: key, label: key, r: 15 + key.length * 2 });
         this.state.output[key].forEach(parent => {
           links.push({ source: parent, target: key, directed: true });
         });
@@ -66,7 +66,7 @@ export default class Map extends React.Component {
     }, () => {
       const nodes = [], links = [];
       for (let key in this.state.output) {
-        nodes.push({ id: key, label: key, r: 27 });
+        nodes.push({ id: key, label: key, r: 15 + key.length * 2 });
         this.state.output[key].forEach(child => {
           links.push({ source: key, target: child, directed: true });
         });
@@ -79,9 +79,9 @@ export default class Map extends React.Component {
       output: Object.values(book.getChildren(this.state.input_from)),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 27 });
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 15 + this.state.input_from.length * 2 });
       this.state.output.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 27 })
+        nodes.push({ id: nodeName, label: nodeName, r: 15 + nodeName.length * 2 })
         links.push({ source: this.state.input_from, target: nodeName, directed: true })
       });
       this.graph.redraw(nodes, links);
@@ -92,9 +92,9 @@ export default class Map extends React.Component {
       output: Object.values(book.getParents(this.state.input_from)),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 27 });
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 15 + this.state.input_from.length * 2 });
       this.state.output.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 27 })
+        nodes.push({ id: nodeName, label: nodeName, r: 15 + nodeName.length * 2 })
         links.push({ source: nodeName, target: this.state.input_from, directed: true })
       });
       this.graph.redraw(nodes, links)
@@ -105,13 +105,13 @@ export default class Map extends React.Component {
       output: book.getAdjacent(this.state.input_from),
     }, () => {
       const nodes = [], links = [];
-      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 27 });
+      nodes.push({ id: this.state.input_from, label: this.state.input_from, r: 15 + this.state.input_from.length * 2 });
       this.state.output.children.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 27 })
+        nodes.push({ id: nodeName, label: nodeName, r: 15 + nodeName.length * 2 })
         links.push({ source: this.state.input_from, target: nodeName, directed: true })
       });
       this.state.output.parents.forEach(nodeName => {
-        nodes.push({ id: nodeName, label: nodeName, r: 27 })
+        nodes.push({ id: nodeName, label: nodeName, r: 15 + nodeName.length * 2 })
         links.push({ source: nodeName, target: this.state.input_from, directed: true })
       });
       this.graph.redraw(nodes, links);
