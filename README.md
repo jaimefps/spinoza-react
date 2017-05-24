@@ -1,7 +1,7 @@
 # spinoza-react
 WEB APP FOR VISUALIZING SPINOZA'S ETHICS AS A GRAPH 
 
-https://spinoza-navigator.herokuapp.com/
+http://spinoza.jaimefps.com/
 
 ![alt text](src/assets/readme-img/main.png).
 ![alt text](src/assets/readme-img/info.png).
