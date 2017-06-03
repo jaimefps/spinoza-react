@@ -11,10 +11,10 @@ export default class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input_from: '',
-      input_to: '',
+      input_from: 'E1Def1',
+      input_to: 'E1P36',
       output: '',
-      query_type: '',
+      query_type: 'getConnections',
       showIntro: false,
       whatIntro: '',
     };
@@ -30,6 +30,10 @@ export default class Map extends React.Component {
     this.handleToField = this.handleToField.bind(this);
     this.graph = new GraphViz()
   }
+  componentDidMount() {
+    this.getConnections();
+  }
+
   // TODO: remove logic from View component, 
   // move all this logic to the graphViz and pass down the output as parameter...
   getConnections() {  
