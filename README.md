@@ -3,8 +3,8 @@ WEB APP FOR VISUALIZING SPINOZA'S ETHICS AS A GRAPH
 
 http://spinoza.jaimefps.com/
 
-![alt text](src/assets/readme-img/main.png).
-![alt text](src/assets/readme-img/info.png).
+![alt text](src/assets/readme-img/main.png)
+![alt text](src/assets/readme-img/info.png)
 
 *MVP:*
 
