@@ -1,4 +1,3 @@
-// maybe the 'addEdge' method should be on the Node, not the Graph?
 export class Node {
   constructor(title, content) {
     this.title = title;
@@ -16,8 +15,8 @@ export default class Graph {
     return this.nodes[node];
   }
   addEdge(fromNode, toNode) {
-    this.nodes[fromNode.title].children.push(toNode.title);
-    this.nodes[toNode.title].parents.push(fromNode.title);
+    this.nodes[fromNode].children.push(toNode);
+    this.nodes[toNode].parents.push(fromNode);
   }
   getAdjacent(title) {
     const result = {

@@ -1,5 +1,7 @@
+/* eslint-disable */
+
 import React from 'react'; 
-import { book } from '../data-structures/book.js';
+import { book } from '../data-structures/book_graph.js';
 import GraphViz from '../data-structures/greuler-viz.js';
 import What from './what.js';
 import How from './how.js';
