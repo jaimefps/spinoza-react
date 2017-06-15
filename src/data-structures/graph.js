@@ -54,7 +54,6 @@ export default class Graph {
       propsWithChildren[nodeName] = graph.nodes[nodeName].children;
       if (graph.nodes[nodeName].children.length < 1) return;
       graph.nodes[nodeName].children.forEach((child) => {
-        if(nodeName === 'E1P16') return;
         getChildren(child);
       });
     }(title));
