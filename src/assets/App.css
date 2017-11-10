@@ -72,6 +72,27 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border: 2px solid black;
+  background-color: white;
+  padding: 5px;
+}
+.select-node {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 10px;
+  padding: 4px 10px;
+  letter-spacing: 0.3ch;
+  font-weight: bold;
+  color: black;
+  background: rgb(41, 128, 185);
+  opacity: 0.8;
+  margin: 0 5px;
+}
+.select-node > label {
+  margin: 0 5px;
+  color:white;
+}
+select {
+  height: 18px
 }
 .instructions-bttn {
   cursor: pointer;
@@ -94,7 +115,7 @@ body {
 .instructions-bttn:hover {
   border:2px dotted white;
   box-shadow: 2px 2px 2px white;
-  background: black;
+  background: grey;
   color: white;
 }
 input {
@@ -109,8 +130,8 @@ button {
   background-color: black;
   color: white;
   font-weight: bold;
-  width: 90px;
-  height: 28px;
+  padding: 5px 20px;
+  cursor: pointer;
 }
 @media (max-width: 600px) {
   .button {
@@ -118,11 +139,11 @@ button {
     /*width: auto;*/
   }
 }
-button:hover {
+/*button:hover {
   cursor: pointer;
   background: white;
   color: black;
-}
+}*/
 #demo {
   height: 500px;
   width: 800px;

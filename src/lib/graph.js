@@ -18,48 +18,24 @@ export default class Graph {
     this.nodes[fromNode].children.push(toNode);
     this.nodes[toNode].parents.push(fromNode);
   }
-  getAdjacent(title) {
+  parents(name) {
+    const results = [];
+    this.nodes[name].parents.forEach(name => results.push(name));
+    return results;
+  }
+  children(name) {
+    const results = [];
+    this.nodes[name].children.forEach(name => results.push(name));
+    return results;
+  }
+  getAdjacent(name) {
     const result = {
-      children: this.getChildren(title),
-      parents: this.getParents(title),
-    };
+      children: this.children(name),
+      parents: this.parents(name),
+    }
     return result;
   }
-  getParents(title) {
-    const results = [];
-    this.nodes[title].parents.forEach(nodeName => results.push(nodeName));
-    return results;
-  }
-  getChildren(title) {
-    const results = [];
-    this.nodes[title].children.forEach(nodeName => results.push(nodeName));
-    return results;
-  }
-  getAncestorsGreuler(title) {
-    const propsWithParents = {};
-    const graph = this;
-    (function getParents(nodeName) {
-      propsWithParents[nodeName] = graph.nodes[nodeName].parents;
-      if (graph.nodes[nodeName].parents.length < 1) return;
-      graph.nodes[nodeName].parents.forEach((parent) => {
-        getParents(parent);
-      });
-    }(title));
-    return propsWithParents;
-  }
-  getDescendantsGreuler(title) {
-    const propsWithChildren = {};
-    const graph = this;
-    (function getChildren(nodeName) {
-      propsWithChildren[nodeName] = graph.nodes[nodeName].children;
-      if (graph.nodes[nodeName].children.length < 1) return;
-      graph.nodes[nodeName].children.forEach((child) => {
-        getChildren(child);
-      });
-    }(title));
-    return propsWithChildren;
-  }
-  getConnection(from, to) {
+  connection(from, to) {
     const connectors = {};
     const descendantsEtAl = this.getDescendantsGreuler(from);
     const ancestorsEtAl = this.getAncestorsGreuler(to);
@@ -70,6 +46,30 @@ export default class Graph {
       connectors[key] = connectors[key].filter(el => connectors[el]);
     }
     return connectors;
+  }
+  getAncestorsGreuler(title) {
+    const propsWithParents = {};
+    const graph = this;
+    (function getParents(nodeName) {
+      propsWithParents[nodeName] = graph.nodes[nodeName].parents;
+      if (graph.nodes[nodeName].parents.length < 1) return;
+      graph.nodes[nodeName].parents.forEach((parent) => {
+        getParents(parent);
+      }) 
+    }(title))
+    return propsWithParents;
+  }
+  getDescendantsGreuler(title) {
+    const propsWithChildren = {}
+    const graph = this;
+    (function getChildren(nodeName) {
+      propsWithChildren[nodeName] = graph.nodes[nodeName].children;
+      if (graph.nodes[nodeName].children.length < 1) return;
+      graph.nodes[nodeName].children.forEach((child) => {
+        getChildren(child);
+      })
+    }(title))
+    return propsWithChildren;
   }
 }
 

@@ -1,8 +1,12 @@
 export const data_etica = {
-  // references to other books
+  /*******************************************************
+   *                    outside references:
+   ******************************************************/ 
   // Principle of Cartecian Philosophy 19.
   PCP19: [],
-  // Ethics Part 1
+  /*******************************************************
+   *                    Ethics Part 1 
+   ******************************************************/ 
   // axioms
   E1Ax1: [],
   E1Ax2: [],
@@ -86,7 +90,9 @@ export const data_etica = {
   E1P34: ['E1P11', 'E1P16', 'E1P16Cor1'],
   E1P35: ['E1P34'],
   E1P36: ['E1P25Cor1', 'E1P34', 'E1P16'],
-  // Ethics Part 2 
+  /*******************************************************
+   *                    Ethics Part 2 
+   ******************************************************/ 
   // definitions
   E2Def1: [],
   E2Def2: [],
@@ -113,4 +119,6 @@ export const data_etica = {
   E2P6Cor1: [],
   E2P7: ['E1Ax4'],
   E2P7Cor1: [],
+  // i can 'toUpperCase()' my keys and be lazy from here on out:
+  
 }
